@@ -9,9 +9,14 @@
 /* Begin PBXBuildFile section */
 		A372A3F028759F150010A894 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A372A3EF28759F150010A894 /* AppDelegate.swift */; };
 		A372A3F228759F150010A894 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A372A3F128759F150010A894 /* SceneDelegate.swift */; };
-		A372A3F428759F150010A894 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A372A3F328759F150010A894 /* ViewController.swift */; };
 		A372A3F928759F170010A894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A372A3F828759F170010A894 /* Assets.xcassets */; };
 		A372A3FC28759F170010A894 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A372A3FA28759F170010A894 /* LaunchScreen.storyboard */; };
+		A37388E9287C1E9200C1E7A4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37388E8287C1E9200C1E7A4 /* MainTabBarController.swift */; };
+		A37388EB287C1EB400C1E7A4 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37388EA287C1EB400C1E7A4 /* NavigationController.swift */; };
+		A37388ED287C1ED200C1E7A4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37388EC287C1ED200C1E7A4 /* HomeViewController.swift */; };
+		A37388EF287C1EDE00C1E7A4 /* LaunchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37388EE287C1EDE00C1E7A4 /* LaunchesViewController.swift */; };
+		A37388F1287C1EE800C1E7A4 /* RocketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37388F0287C1EE800C1E7A4 /* RocketsViewController.swift */; };
+		A37388F3287C858200C1E7A4 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37388F2287C858200C1E7A4 /* Extension+UIColor.swift */; };
 		A37E71D8287AD25500E2B6C8 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = A37E71D7287AD25500E2B6C8 /* Apollo */; };
 		A37E71DA287AD25500E2B6C8 /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = A37E71D9287AD25500E2B6C8 /* ApolloWebSocket */; };
 /* End PBXBuildFile section */
@@ -20,10 +25,15 @@
 		A372A3EC28759F150010A894 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A372A3EF28759F150010A894 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A372A3F128759F150010A894 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A372A3F328759F150010A894 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A372A3F828759F170010A894 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A372A3FB28759F170010A894 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A372A3FD28759F170010A894 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A37388E8287C1E9200C1E7A4 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		A37388EA287C1EB400C1E7A4 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		A37388EC287C1ED200C1E7A4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A37388EE287C1EDE00C1E7A4 /* LaunchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesViewController.swift; sourceTree = "<group>"; };
+		A37388F0287C1EE800C1E7A4 /* RocketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsViewController.swift; sourceTree = "<group>"; };
+		A37388F2287C858200C1E7A4 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		A37E71DE287AE7D700E2B6C8 /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,10 +69,15 @@
 		A372A3EE28759F150010A894 /* SpaceX */ = {
 			isa = PBXGroup;
 			children = (
-				A372A3F328759F150010A894 /* ViewController.swift */,
+				A37388E8287C1E9200C1E7A4 /* MainTabBarController.swift */,
+				A37388EA287C1EB400C1E7A4 /* NavigationController.swift */,
+				A37388EC287C1ED200C1E7A4 /* HomeViewController.swift */,
+				A37388EE287C1EDE00C1E7A4 /* LaunchesViewController.swift */,
+				A37388F0287C1EE800C1E7A4 /* RocketsViewController.swift */,
 				A37E71DD287AD8CC00E2B6C8 /* GraphQL */,
 				A372A4032875B0190010A894 /* Sources */,
 				A372A4042875B02F0010A894 /* SupportingFiles */,
+				A37388F2287C858200C1E7A4 /* Extension+UIColor.swift */,
 			);
 			path = SpaceX;
 			sourceTree = "<group>";
@@ -193,9 +208,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A372A3F428759F150010A894 /* ViewController.swift in Sources */,
+				A37388F1287C1EE800C1E7A4 /* RocketsViewController.swift in Sources */,
+				A37388E9287C1E9200C1E7A4 /* MainTabBarController.swift in Sources */,
+				A37388EF287C1EDE00C1E7A4 /* LaunchesViewController.swift in Sources */,
+				A37388EB287C1EB400C1E7A4 /* NavigationController.swift in Sources */,
 				A372A3F028759F150010A894 /* AppDelegate.swift in Sources */,
 				A372A3F228759F150010A894 /* SceneDelegate.swift in Sources */,
+				A37388ED287C1ED200C1E7A4 /* HomeViewController.swift in Sources */,
+				A37388F3287C858200C1E7A4 /* Extension+UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
