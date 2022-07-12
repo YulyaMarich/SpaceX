@@ -71,15 +71,11 @@
 		A372A3EE28759F150010A894 /* SpaceX */ = {
 			isa = PBXGroup;
 			children = (
-				A37388E8287C1E9200C1E7A4 /* MainTabBarController.swift */,
-				A37388EA287C1EB400C1E7A4 /* NavigationController.swift */,
-				A37388EC287C1ED200C1E7A4 /* HomeViewController.swift */,
-				A37388EE287C1EDE00C1E7A4 /* LaunchesViewController.swift */,
-				A37388F0287C1EE800C1E7A4 /* RocketsViewController.swift */,
+				A3A2EA38287DC83D00C62B81 /* ViewControllers */,
 				A37E71DD287AD8CC00E2B6C8 /* GraphQL */,
 				A372A4032875B0190010A894 /* Sources */,
 				A372A4042875B02F0010A894 /* SupportingFiles */,
-				A37388F2287C858200C1E7A4 /* Extension+UIColor.swift */,
+				A3A2EA39287DC85500C62B81 /* Extensions */,
 			);
 			path = SpaceX;
 			sourceTree = "<group>";
@@ -111,6 +107,26 @@
 				A3A2EA36287DA99000C62B81 /* HomeInfoQuery.graphql */,
 			);
 			path = GraphQL;
+			sourceTree = "<group>";
+		};
+		A3A2EA38287DC83D00C62B81 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A37388E8287C1E9200C1E7A4 /* MainTabBarController.swift */,
+				A37388EA287C1EB400C1E7A4 /* NavigationController.swift */,
+				A37388EC287C1ED200C1E7A4 /* HomeViewController.swift */,
+				A37388EE287C1EDE00C1E7A4 /* LaunchesViewController.swift */,
+				A37388F0287C1EE800C1E7A4 /* RocketsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A3A2EA39287DC85500C62B81 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A37388F2287C858200C1E7A4 /* Extension+UIColor.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
