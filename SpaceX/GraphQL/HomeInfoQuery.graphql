@@ -1,0 +1,18 @@
+query HomeInfoQuery {
+  company {
+    summary
+    founder
+    founded
+    valuation
+    links {
+      twitter
+    }
+  }
+  histories {
+    title
+    details
+    links {
+      article
+    }
+  }
+}
