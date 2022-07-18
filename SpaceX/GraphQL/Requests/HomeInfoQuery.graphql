@@ -1,4 +1,4 @@
-query HomeInfoQuery {
+query HomeInfo {
   company {
     summary
     founder
