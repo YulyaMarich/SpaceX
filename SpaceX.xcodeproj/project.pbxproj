@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A331EA7328842E9900740AF4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EA7228842E9900740AF4 /* NetworkManager.swift */; };
+		A331EA7528842EAA00740AF4 /* SpaceXService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EA7428842EAA00740AF4 /* SpaceXService.swift */; };
+		A331EA772884311400740AF4 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EA762884311400740AF4 /* Network.swift */; };
+		A331EA782884448900740AF4 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A2EA37287DA9A400C62B81 /* API.swift */; };
+		A331EA7A28844EA800740AF4 /* SpaceXAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EA7928844EA700740AF4 /* SpaceXAPI.swift */; };
+		A331EA7C288454A700740AF4 /* ApolloAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EA7B288454A700740AF4 /* ApolloAPI.swift */; };
 		A372A3F028759F150010A894 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A372A3EF28759F150010A894 /* AppDelegate.swift */; };
 		A372A3F228759F150010A894 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A372A3F128759F150010A894 /* SceneDelegate.swift */; };
 		A372A3F928759F170010A894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A372A3F828759F170010A894 /* Assets.xcassets */; };
@@ -22,6 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A331EA7228842E9900740AF4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		A331EA7428842EAA00740AF4 /* SpaceXService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXService.swift; sourceTree = "<group>"; };
+		A331EA762884311400740AF4 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		A331EA7928844EA700740AF4 /* SpaceXAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXAPI.swift; sourceTree = "<group>"; };
+		A331EA7B288454A700740AF4 /* ApolloAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloAPI.swift; sourceTree = "<group>"; };
 		A372A3EC28759F150010A894 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A372A3EF28759F150010A894 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A372A3F128759F150010A894 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +63,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A331EA7D288454EE00740AF4 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				A3A2EA36287DA99000C62B81 /* HomeInfoQuery.graphql */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		A331EA7E2884552400740AF4 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A331EA762884311400740AF4 /* Network.swift */,
+				A331EA7228842E9900740AF4 /* NetworkManager.swift */,
+				A331EA7428842EAA00740AF4 /* SpaceXService.swift */,
+				A331EA7928844EA700740AF4 /* SpaceXAPI.swift */,
+				A331EA7B288454A700740AF4 /* ApolloAPI.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		A372A3E328759F150010A894 = {
 			isa = PBXGroup;
 			children = (
@@ -104,7 +135,8 @@
 			children = (
 				A37E71DE287AE7D700E2B6C8 /* schema.json */,
 				A3A2EA37287DA9A400C62B81 /* API.swift */,
-				A3A2EA36287DA99000C62B81 /* HomeInfoQuery.graphql */,
+				A331EA7E2884552400740AF4 /* Managers */,
+				A331EA7D288454EE00740AF4 /* Requests */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -247,14 +279,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A331EA7528842EAA00740AF4 /* SpaceXService.swift in Sources */,
 				A37388F1287C1EE800C1E7A4 /* RocketsViewController.swift in Sources */,
 				A37388E9287C1E9200C1E7A4 /* MainTabBarController.swift in Sources */,
 				A37388EF287C1EDE00C1E7A4 /* LaunchesViewController.swift in Sources */,
 				A37388EB287C1EB400C1E7A4 /* NavigationController.swift in Sources */,
+				A331EA772884311400740AF4 /* Network.swift in Sources */,
 				A372A3F028759F150010A894 /* AppDelegate.swift in Sources */,
+				A331EA7328842E9900740AF4 /* NetworkManager.swift in Sources */,
 				A372A3F228759F150010A894 /* SceneDelegate.swift in Sources */,
+				A331EA7A28844EA800740AF4 /* SpaceXAPI.swift in Sources */,
 				A37388ED287C1ED200C1E7A4 /* HomeViewController.swift in Sources */,
+				A331EA782884448900740AF4 /* API.swift in Sources */,
 				A37388F3287C858200C1E7A4 /* Extension+UIColor.swift in Sources */,
+				A331EA7C288454A700740AF4 /* ApolloAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

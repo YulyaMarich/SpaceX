@@ -4,11 +4,11 @@
 import Apollo
 import Foundation
 
-public final class HomeInfoQueryQuery: GraphQLQuery {
+public final class HomeInfoQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query HomeInfoQuery {
+    query HomeInfo {
       company {
         __typename
         summary
@@ -32,7 +32,7 @@ public final class HomeInfoQueryQuery: GraphQLQuery {
     }
     """
 
-  public let operationName: String = "HomeInfoQuery"
+  public let operationName: String = "HomeInfo"
 
   public init() {
   }
