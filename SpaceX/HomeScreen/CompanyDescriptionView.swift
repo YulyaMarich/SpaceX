@@ -9,7 +9,7 @@ import UIKit
 
 class CompanyDescriptionView: UIView {
     
-    lazy var companyActivityLabel: UILabel = {
+    private lazy var companyActivityLabel: UILabel = {
         let companyActivityLabel = UILabel()
         companyActivityLabel.numberOfLines = 0
         companyActivityLabel.text = companyActivityText
@@ -18,7 +18,7 @@ class CompanyDescriptionView: UIView {
         return companyActivityLabel
     }()
     
-    lazy var founderLabel: UILabel = {
+    private lazy var founderLabel: UILabel = {
         let founderLabel = UILabel()
         founderLabel.numberOfLines = 0
         founderLabel.text = "Founder: \(founderText ?? "No info")"
@@ -26,7 +26,7 @@ class CompanyDescriptionView: UIView {
         return founderLabel
     }()
     
-    lazy var yearLabel: UILabel = {
+    private lazy var yearLabel: UILabel = {
         let yearLabel = UILabel()
         yearLabel.numberOfLines = 0
         yearLabel.text = "Year: \(yearText ?? 0)"
@@ -34,7 +34,7 @@ class CompanyDescriptionView: UIView {
         return yearLabel
     }()
     
-    lazy var valuationLabel: UILabel = {
+    private lazy var valuationLabel: UILabel = {
         let valuationLabel = UILabel()
         valuationLabel.numberOfLines = 0
         valuationLabel.text = "Valuation: \(valuationText ?? 0)$"
@@ -42,7 +42,7 @@ class CompanyDescriptionView: UIView {
         return valuationLabel
     }()
     
-    lazy var twitterButton: UIButton = {
+    private lazy var twitterButton: UIButton = {
         let twitterButton = UIButton()
         twitterButton.titleLabel?.font = UIFont(name: "Inter-Regular", size: 12)
         twitterButton.setTitle("Twitter", for: .normal)
@@ -54,16 +54,18 @@ class CompanyDescriptionView: UIView {
         return twitterButton
     }()
     
-    var companyActivityText: String?
-    var founderText: String?
-    var yearText: Int?
-    var valuationText: Double?
+    private var companyActivityText: String?
+    private var founderText: String?
+    private var yearText: Int?
+    private var valuationText: Double?
+    private var twitterLink: String?
     
-    init(companyActivityText: String?, founderText: String?, yearText: Int?, valuationText: Double?) {
+    init(companyActivityText: String?, founderText: String?, yearText: Int?, valuationText: Double?, twitterLink: String?) {
         self.companyActivityText = companyActivityText
         self.founderText = founderText
         self.yearText = yearText
         self.valuationText = valuationText
+        self.twitterLink = twitterLink
         super.init(frame: .zero)
         setUpView()
     }
@@ -91,31 +93,31 @@ class CompanyDescriptionView: UIView {
                                     leading: leadingAnchor,
                                     bottom: founderLabel.topAnchor,
                                     trailing: trailingAnchor,
-                                    padding: .init(top: 0, left: 0, bottom: 7, right: 0))
+                                    spacing: .init(top: 0, left: 0, bottom: 7, right: 0))
         
         founderLabel.anchor(top: nil,
                             leading: leadingAnchor,
                             bottom: yearLabel.topAnchor,
                             trailing: trailingAnchor,
-                            padding: .init(top: 0, left: 0, bottom: 3, right: 0))
+                            spacing: .init(top: 0, left: 0, bottom: 3, right: 0))
         
         yearLabel.anchor(top: nil,
                          leading: leadingAnchor,
                          bottom: valuationLabel.topAnchor,
                          trailing: trailingAnchor,
-                         padding: .init(top: 0, left: 0, bottom: 3, right: 0))
+                         spacing: .init(top: 0, left: 0, bottom: 3, right: 0))
         
         valuationLabel.anchor(top: nil,
                               leading: leadingAnchor,
                               bottom: twitterButton.topAnchor,
                               trailing: trailingAnchor,
-                              padding: .init(top: 0, left: 0, bottom: 3, right: 0))
+                              spacing: .init(top: 0, left: 0, bottom: 3, right: 0))
         
         twitterButton.anchor(top: nil,
                              leading: nil,
                              bottom: bottomAnchor,
                              trailing: trailingAnchor,
-                             padding: .init(top: 0, left: 0, bottom: 0, right: 0))
+                             spacing: .init(top: 0, left: 0, bottom: 0, right: 0))
     }
     
     private func tapTwitterButton() {
@@ -123,7 +125,8 @@ class CompanyDescriptionView: UIView {
     }
     
     @objc func twitterTapped() {
-        UIApplication.shared.open(URL(string: "https://twitter.com/spacex")!)
+        guard let twitterLink = twitterLink, let SXTwitter = URL(string: twitterLink) else { return }
+        UIApplication.shared.open(SXTwitter)
     }
     
 }

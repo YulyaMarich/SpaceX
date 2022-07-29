@@ -9,7 +9,7 @@ import UIKit
 
 class BackroundCardView: UIView {
     
-    lazy var redLine: UIView = {
+    private lazy var redLine: UIView = {
         let line = UIView()
         line.backgroundColor = .sxRed
         return line
@@ -36,7 +36,7 @@ class BackroundCardView: UIView {
                        leading: leadingAnchor,
                        bottom: nil,
                        trailing: nil,
-                       padding: .init(top: 24, left: 7, bottom: 0, right: 7),
+                       spacing: .init(top: 24, left: 7, bottom: 0, right: 7),
                        size: .init(width: 6, height: 40))
     }
 }

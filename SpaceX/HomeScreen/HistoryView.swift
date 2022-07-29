@@ -9,7 +9,7 @@ import UIKit
 
 class HistoryView: UIView {
     
-    lazy var articleTitle: UILabel = {
+    private lazy var articleTitle: UILabel = {
         let articleTitle = UILabel()
         articleTitle.text = titleText
         articleTitle.numberOfLines = 0
@@ -17,7 +17,7 @@ class HistoryView: UIView {
         return articleTitle
     }()
     
-    lazy var articleLabel: UILabel = {
+    private lazy var articleLabel: UILabel = {
         let articleLabel = UILabel()
         articleLabel.text = articleText
         articleLabel.numberOfLines = 0
@@ -25,7 +25,7 @@ class HistoryView: UIView {
         return articleLabel
     }()
     
-    lazy var articleButton: UIButton = {
+    private lazy var articleButton: UIButton = {
         let articleLink = UIButton()
         let yourAttributes: [NSAttributedString.Key: Any] = [
             .font: UIFont(name: "Inter-Regular", size: 12) as Any,
@@ -39,21 +39,19 @@ class HistoryView: UIView {
         return articleLink
     }()
     
-    lazy var chevronImage: UIImageView = {
+    private lazy var chevronImage: UIImageView = {
         let chevronImage = UIImageView(image: UIImage(named: "arrow")?.withTintColor(.sxItemColor))
         return chevronImage
     }()
     
-    let titleText: String?
-    let articleText: String?
-    let link: String?
-    let homeVC: HomeViewController
+    private let titleText: String?
+    private let articleText: String?
+    private let link: String?
     
-    init(titleText: String?, articleText: String?, link: String?, homeVC: HomeViewController) {
+    init(titleText: String?, articleText: String?, link: String?) {
         self.titleText = titleText
         self.articleText = articleText
         self.link = link
-        self.homeVC = homeVC
         super.init(frame: .zero)
         addSubviews()
         setUpView()
@@ -74,7 +72,6 @@ class HistoryView: UIView {
         backgroundColor = .sxTabBarColor
         setUpConstraints()
         setUpArticleButton()
-        openHistoryDetailsVC()
     }
     
     private func setUpConstraints() {
@@ -114,17 +111,8 @@ class HistoryView: UIView {
         articleButton.addTarget(self, action: #selector(openArticle), for: .touchUpInside)
     }
     
-    private func openHistoryDetailsVC() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(moveToHistoryDetailsVC))
-        addGestureRecognizer(tapGestureRecognizer)
-    }
-    
-    @objc func moveToHistoryDetailsVC() {
-        let historyDetailsVC = HistoryDetailViewController()
-        homeVC.navigationController?.pushViewController(historyDetailsVC, animated: true)
-    }
-    
     @objc func openArticle() {
-        UIApplication.shared.open(URL(string: link ?? "")!)
+        guard let link = link, let articleLink = URL(string: link) else { return }
+        UIApplication.shared.open(articleLink)
     }
 }

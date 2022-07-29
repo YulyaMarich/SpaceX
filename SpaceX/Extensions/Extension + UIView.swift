@@ -13,23 +13,23 @@ extension UIView {
                 leading: NSLayoutXAxisAnchor?,
                 bottom: NSLayoutYAxisAnchor?,
                 trailing: NSLayoutXAxisAnchor?,
-                padding: UIEdgeInsets = .zero,
+                spacing: UIEdgeInsets = .zero,
                 size: CGSize = .zero) {
         
         translatesAutoresizingMaskIntoConstraints = false
         
         if let top = top {
-            topAnchor.constraint(equalTo: top, constant: padding.top).isActive = true
+            topAnchor.constraint(equalTo: top, constant: spacing.top).isActive = true
         }
         
         if let leading = leading {
-            leadingAnchor.constraint(equalTo: leading, constant: padding.left).isActive = true
+            leadingAnchor.constraint(equalTo: leading, constant: spacing.left).isActive = true
         }
         if let bottom = bottom {
-            bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom).isActive = true
+            bottomAnchor.constraint(equalTo: bottom, constant: -spacing.bottom).isActive = true
         }
         if let trailing = trailing {
-            trailingAnchor.constraint(equalTo: trailing, constant: -padding.right).isActive = true
+            trailingAnchor.constraint(equalTo: trailing, constant: -spacing.right).isActive = true
         }
         
         if size.width != 0 {

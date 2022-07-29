@@ -10,14 +10,20 @@ import Apollo
 
 protocol HomeViewModelProtocol {
     var spaceXService: SpaceXAPI { get }
+    var data: HomeInfoQuery.Data? { get set }
+    
+    func fetch(completion: @escaping() -> Void)
 }
 
 class HomeViewModel: HomeViewModelProtocol {
-    
+    init(spaceXService: SpaceXAPI = SpaceXService()) {
+        self.spaceXService = spaceXService
+    }
+  
     var spaceXService: SpaceXAPI = SpaceXService()
-    var data: HomeInfoQuery.Data?
-    init() {}
     
+    var data: HomeInfoQuery.Data?
+   
     func fetch(completion: @escaping() -> Void) {
         _ = spaceXService.executeHomeInfoQuery { result in
             switch result {

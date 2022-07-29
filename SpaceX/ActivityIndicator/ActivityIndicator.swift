@@ -7,10 +7,10 @@
 
 import UIKit
 
-class ActivityIndicator: UIImageView {
-    var rocket1 = UIImageView(image: UIImage(named: "rocket")?.withTintColor(.sxItemColor))
-    var rocket2 = UIImageView(image: UIImage(named: "rocket")?.withTintColor(.sxRed))
-    let positions: [CGRect] = [CGRect(x: 20, y: 10, width: 30, height: 30),
+class ActivityIndicator: UIView {
+    private var rocket1 = UIImageView(image: UIImage(named: "rocket")?.withTintColor(.sxItemColor))
+    private var rocket2 = UIImageView(image: UIImage(named: "rocket")?.withTintColor(.sxRed))
+    private let positions: [CGRect] = [CGRect(x: 20, y: 10, width: 30, height: 30),
                                CGRect(x: 30, y: 7.5, width: 40, height: 40),
                                CGRect(x: 50, y: 10, width: 30, height: 30),
                                CGRect(x: 30, y: 12.5, width: 20, height: 20)]
@@ -26,19 +26,19 @@ class ActivityIndicator: UIImageView {
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
+        addSubview(rocket1)
+        addSubview(rocket2)
         rocket1.layer.zPosition = 2
-        self.addSubview(rocket1)
-        self.addSubview(rocket2)
         rocket2.layer.zPosition = 1
     }
     
-    func animate(_ rocket: UIImageView, counter: Int) {
-        var counter1 = counter
+    private func animate(_ rocket: UIImageView, counter: Int) {
+        var counter = counter
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveLinear, animations: { [weak self] in
             guard let strongSelf = self else { return }
-            rocket.frame = strongSelf.positions[counter1]
+            rocket.frame = strongSelf.positions[counter]
             
-            switch counter1 {
+            switch counter {
             case 1:
                 if rocket == strongSelf.rocket1 { strongSelf.rocket1.layer.zPosition = 2 }
             case 3:
@@ -48,21 +48,21 @@ class ActivityIndicator: UIImageView {
             }
         }) { [weak self] (completed) in
             guard let strongSelf = self else { return }
-            switch counter1 {
+            switch counter {
             case 0...2:
-                counter1 += 1
+                counter += 1
             case 3:
-                counter1 = 0
+                counter = 0
                 
             default:
                 break
             }
-            strongSelf.animate(rocket, counter: counter1)
+            strongSelf.animate(rocket, counter: counter)
         }
     }
     
     func startAnimation() {
-        self.animate(self.rocket1, counter: 1)
-        self.animate(self.rocket2, counter: 3)
+        animate(rocket1, counter: 1)
+        animate(rocket2, counter: 3)
     }
 }
