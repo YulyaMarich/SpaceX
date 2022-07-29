@@ -7,12 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A30ACDA228868F860047734F /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30ACDA128868F860047734F /* Extension + UIView.swift */; };
+		A30ACDA42886B18B0047734F /* SX-Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A30ACDA32886B18B0047734F /* SX-Inter-Regular.ttf */; };
+		A30ACDA62886F4B30047734F /* Extension + UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30ACDA52886F4B30047734F /* Extension + UIImage.swift */; };
+		A30ACDC828887F9D0047734F /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30ACDC728887F9D0047734F /* HistoryView.swift */; };
+		A30ACDCA28892C0F0047734F /* CompanyDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30ACDC928892C0F0047734F /* CompanyDescriptionView.swift */; };
+		A30ACE10288AB6A80047734F /* BackroundCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30ACE0F288AB6A80047734F /* BackroundCardView.swift */; };
+		A30ACE12288C44400047734F /* HistoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30ACE11288C44400047734F /* HistoryDetailViewController.swift */; };
+		A30ACE16288FDC460047734F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30ACE15288FDC460047734F /* ActivityIndicator.swift */; };
+		A30ACE18289025760047734F /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30ACE17289025750047734F /* Extension + UIViewController.swift */; };
 		A331EA7328842E9900740AF4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EA7228842E9900740AF4 /* NetworkManager.swift */; };
 		A331EA7528842EAA00740AF4 /* SpaceXService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EA7428842EAA00740AF4 /* SpaceXService.swift */; };
 		A331EA772884311400740AF4 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EA762884311400740AF4 /* Network.swift */; };
 		A331EA782884448900740AF4 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A2EA37287DA9A400C62B81 /* API.swift */; };
 		A331EA7A28844EA800740AF4 /* SpaceXAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EA7928844EA700740AF4 /* SpaceXAPI.swift */; };
 		A331EA7C288454A700740AF4 /* ApolloAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EA7B288454A700740AF4 /* ApolloAPI.swift */; };
+		A331EA8428856D2600740AF4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EA8328856D2600740AF4 /* HomeViewModel.swift */; };
 		A372A3F028759F150010A894 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A372A3EF28759F150010A894 /* AppDelegate.swift */; };
 		A372A3F228759F150010A894 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A372A3F128759F150010A894 /* SceneDelegate.swift */; };
 		A372A3F928759F170010A894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A372A3F828759F170010A894 /* Assets.xcassets */; };
@@ -28,11 +38,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A30ACDA128868F860047734F /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
+		A30ACDA32886B18B0047734F /* SX-Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SX-Inter-Regular.ttf"; sourceTree = "<group>"; };
+		A30ACDA52886F4B30047734F /* Extension + UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIImage.swift"; sourceTree = "<group>"; };
+		A30ACDC728887F9D0047734F /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		A30ACDC928892C0F0047734F /* CompanyDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDescriptionView.swift; sourceTree = "<group>"; };
+		A30ACE0F288AB6A80047734F /* BackroundCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackroundCardView.swift; sourceTree = "<group>"; };
+		A30ACE11288C44400047734F /* HistoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailViewController.swift; sourceTree = "<group>"; };
+		A30ACE15288FDC460047734F /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		A30ACE17289025750047734F /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
 		A331EA7228842E9900740AF4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A331EA7428842EAA00740AF4 /* SpaceXService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXService.swift; sourceTree = "<group>"; };
 		A331EA762884311400740AF4 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		A331EA7928844EA700740AF4 /* SpaceXAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXAPI.swift; sourceTree = "<group>"; };
 		A331EA7B288454A700740AF4 /* ApolloAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloAPI.swift; sourceTree = "<group>"; };
+		A331EA8328856D2600740AF4 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A372A3EC28759F150010A894 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A372A3EF28759F150010A894 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A372A3F128759F150010A894 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +83,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A30ACE13288FD3070047734F /* HistoryDetailsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A30ACE11288C44400047734F /* HistoryDetailViewController.swift */,
+			);
+			path = HistoryDetailsScreen;
+			sourceTree = "<group>";
+		};
+		A30ACE14288FDC230047734F /* ActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				A30ACE15288FDC460047734F /* ActivityIndicator.swift */,
+			);
+			path = ActivityIndicator;
+			sourceTree = "<group>";
+		};
 		A331EA7D288454EE00740AF4 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +117,18 @@
 				A331EA7B288454A700740AF4 /* ApolloAPI.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		A331EA8228856D1000740AF4 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A37388EC287C1ED200C1E7A4 /* HomeViewController.swift */,
+				A331EA8328856D2600740AF4 /* HomeViewModel.swift */,
+				A30ACDC728887F9D0047734F /* HistoryView.swift */,
+				A30ACDC928892C0F0047734F /* CompanyDescriptionView.swift */,
+				A30ACE0F288AB6A80047734F /* BackroundCardView.swift */,
+			);
+			path = HomeScreen;
 			sourceTree = "<group>";
 		};
 		A372A3E328759F150010A894 = {
@@ -102,7 +150,10 @@
 		A372A3EE28759F150010A894 /* SpaceX */ = {
 			isa = PBXGroup;
 			children = (
+				A30ACE13288FD3070047734F /* HistoryDetailsScreen */,
 				A3A2EA38287DC83D00C62B81 /* ViewControllers */,
+				A331EA8228856D1000740AF4 /* HomeScreen */,
+				A30ACE14288FDC230047734F /* ActivityIndicator */,
 				A37E71DD287AD8CC00E2B6C8 /* GraphQL */,
 				A372A4032875B0190010A894 /* Sources */,
 				A372A4042875B02F0010A894 /* SupportingFiles */,
@@ -115,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				A372A3F828759F170010A894 /* Assets.xcassets */,
+				A30ACDA32886B18B0047734F /* SX-Inter-Regular.ttf */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -146,7 +198,6 @@
 			children = (
 				A37388E8287C1E9200C1E7A4 /* MainTabBarController.swift */,
 				A37388EA287C1EB400C1E7A4 /* NavigationController.swift */,
-				A37388EC287C1ED200C1E7A4 /* HomeViewController.swift */,
 				A37388EE287C1EDE00C1E7A4 /* LaunchesViewController.swift */,
 				A37388F0287C1EE800C1E7A4 /* RocketsViewController.swift */,
 			);
@@ -157,6 +208,9 @@
 			isa = PBXGroup;
 			children = (
 				A37388F2287C858200C1E7A4 /* Extension+UIColor.swift */,
+				A30ACDA128868F860047734F /* Extension + UIView.swift */,
+				A30ACDA52886F4B30047734F /* Extension + UIImage.swift */,
+				A30ACE17289025750047734F /* Extension + UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -228,6 +282,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A30ACDA42886B18B0047734F /* SX-Inter-Regular.ttf in Resources */,
 				A372A3FC28759F170010A894 /* LaunchScreen.storyboard in Resources */,
 				A372A3F928759F170010A894 /* Assets.xcassets in Resources */,
 			);
@@ -281,17 +336,26 @@
 			files = (
 				A331EA7528842EAA00740AF4 /* SpaceXService.swift in Sources */,
 				A37388F1287C1EE800C1E7A4 /* RocketsViewController.swift in Sources */,
+				A30ACDCA28892C0F0047734F /* CompanyDescriptionView.swift in Sources */,
 				A37388E9287C1E9200C1E7A4 /* MainTabBarController.swift in Sources */,
+				A30ACE10288AB6A80047734F /* BackroundCardView.swift in Sources */,
+				A30ACE12288C44400047734F /* HistoryDetailViewController.swift in Sources */,
 				A37388EF287C1EDE00C1E7A4 /* LaunchesViewController.swift in Sources */,
+				A30ACE18289025760047734F /* Extension + UIViewController.swift in Sources */,
+				A30ACDA228868F860047734F /* Extension + UIView.swift in Sources */,
 				A37388EB287C1EB400C1E7A4 /* NavigationController.swift in Sources */,
 				A331EA772884311400740AF4 /* Network.swift in Sources */,
+				A30ACDC828887F9D0047734F /* HistoryView.swift in Sources */,
 				A372A3F028759F150010A894 /* AppDelegate.swift in Sources */,
 				A331EA7328842E9900740AF4 /* NetworkManager.swift in Sources */,
 				A372A3F228759F150010A894 /* SceneDelegate.swift in Sources */,
 				A331EA7A28844EA800740AF4 /* SpaceXAPI.swift in Sources */,
 				A37388ED287C1ED200C1E7A4 /* HomeViewController.swift in Sources */,
+				A30ACE16288FDC460047734F /* ActivityIndicator.swift in Sources */,
 				A331EA782884448900740AF4 /* API.swift in Sources */,
 				A37388F3287C858200C1E7A4 /* Extension+UIColor.swift in Sources */,
+				A331EA8428856D2600740AF4 /* HomeViewModel.swift in Sources */,
+				A30ACDA62886F4B30047734F /* Extension + UIImage.swift in Sources */,
 				A331EA7C288454A700740AF4 /* ApolloAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
