@@ -9,21 +9,27 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    private var scrollView: UIScrollView = {
+    private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         return scrollView
     }()
     
-    private var companyDescriptionView = BackroundCardView()
+    private lazy var scrollViewContainer: UIView = {
+        let view = UIView()
+        return view
+    }()
     
-    private var historyLabel: UILabel = {
+    private lazy var companyDescriptionView = BackroundCardView()
+    
+    private lazy var historyLabel: UILabel = {
         let label = UILabel()
         label.text = "Histories"
         label.font = UIFont(name: "Inter-Regular", size: 15)
         return label
     }()
     
-    private var stackView: UIStackView = {
+    
+    private lazy var stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 18
@@ -31,6 +37,7 @@ class HomeViewController: UIViewController {
     }()
     
     private var viewModel: HomeViewModelProtocol
+    private var data: HomeInfoQuery.Data.History?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,48 +65,51 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .sxWhite
     }
     
+    
     private func addSubviews() {
         view.addSubview(scrollView)
-        scrollView.addSubview(companyDescriptionView)
-        scrollView.addSubview(historyLabel)
-        scrollView.addSubview(stackView)
-        addConstraints()
+        scrollView.addSubview(scrollViewContainer)
+        scrollViewContainer.addSubview(companyDescriptionView)
+        scrollViewContainer.addSubview(historyLabel)
+        scrollViewContainer.addSubview(stackView)
+        setUpConstraints()
         setUpHistoriesStackView()
         setUpCompanyDescriptionView()
     }
     
-    private func addConstraints() {
+    private func setUpConstraints() {
         scrollView.anchor(top: view.safeAreaLayoutGuide.topAnchor,
                           leading: view.safeAreaLayoutGuide.leadingAnchor,
                           bottom: view.safeAreaLayoutGuide.bottomAnchor,
                           trailing: view.safeAreaLayoutGuide.trailingAnchor)
         
-        companyDescriptionView.anchor(top: scrollView.contentLayoutGuide.topAnchor,
-                                      leading: scrollView.contentLayoutGuide.leadingAnchor,
+        scrollViewContainer.anchor(top: scrollView.topAnchor,
+                                   leading: scrollView.leadingAnchor,
+                                   bottom: scrollView.bottomAnchor,
+                                   trailing: scrollView.trailingAnchor)
+        scrollViewContainer.translatesAutoresizingMaskIntoConstraints = false
+        scrollViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        
+        companyDescriptionView.anchor(top: scrollViewContainer.topAnchor,
+                                      leading: scrollViewContainer.leadingAnchor,
                                       bottom: historyLabel.topAnchor,
-                                      trailing: scrollView.contentLayoutGuide.trailingAnchor,
+                                      trailing: scrollViewContainer.trailingAnchor,
                                       spacing: .init(top: 10, left: 20, bottom: 18, right: 20))
         
-        companyDescriptionView.anchor(top: nil,
-                                      leading: scrollView.frameLayoutGuide.leadingAnchor,
-                                      bottom: nil,
-                                      trailing: scrollView.frameLayoutGuide.trailingAnchor,
-                                      spacing: .init(top: 0, left: 20, bottom: 0, right: 20))
-        
         historyLabel.anchor(top: nil,
-                            leading: scrollView.contentLayoutGuide.leadingAnchor,
+                            leading: scrollViewContainer.leadingAnchor,
                             bottom: stackView.topAnchor,
-                            trailing: scrollView.contentLayoutGuide.trailingAnchor,
+                            trailing: scrollViewContainer.trailingAnchor,
                             spacing: .init(top: 0, left: 20, bottom: 3, right: 20))
         
         stackView.anchor(top: nil,
-                         leading: scrollView.contentLayoutGuide.leadingAnchor,
-                         bottom: scrollView.contentLayoutGuide.bottomAnchor,
-                         trailing: scrollView.contentLayoutGuide.trailingAnchor,
+                         leading: scrollViewContainer.leadingAnchor,
+                         bottom: scrollViewContainer.bottomAnchor,
+                         trailing: scrollViewContainer.trailingAnchor,
                          spacing: .init(top: 0, left: 20, bottom: 20, right: 20))
     }
     
-    func setUpCompanyDescriptionView() {
+   private func setUpCompanyDescriptionView() {
         guard let company = viewModel.data?.company else { return }
         
         let companyDescriptionViewElements = CompanyDescriptionView(companyActivityText: company.summary,
@@ -117,38 +127,15 @@ class HomeViewController: UIViewController {
                                               spacing: .init(top: 20, left: 20, bottom: 20, right: 20))
     }
     
-    func setUpHistoriesStackView() {
+    private func setUpHistoriesStackView() {
         guard let histories = viewModel.data?.histories else { return }
         
         for history in histories {
-            let historyView = BackroundCardView()
-            let historyViewElements = HistoryView(titleText: history?.title,
-                                                  articleText: history?.details,
-                                                  link: history?.links?.article)
-            
-            stackView.addArrangedSubview(historyView)
-            historyView.addSubview(historyViewElements)
-            
-            historyViewElements.anchor(top: historyView.topAnchor,
-                                       leading: historyView.leadingAnchor,
-                                       bottom: historyView.bottomAnchor,
-                                       trailing: historyView.trailingAnchor,
-                                       spacing: .init(top: 20, left: 20, bottom: 20, right: 0))
-            
-            openHistoryDetailsVC(historyView: historyView)
-            
+            let historyCard = HistoryCardView(history: history)
+            historyCard.presenter = navigationController
+            stackView.addArrangedSubview(historyCard)
             
         }
-    }
-    
-    private func openHistoryDetailsVC(historyView: BackroundCardView) {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(moveToHistoryDetailsVC))
-        historyView.addGestureRecognizer(tapGestureRecognizer)
-    }
-    
-    @objc func moveToHistoryDetailsVC() {
-        let historyDetailsVC = HistoryDetailViewController()
-        navigationController?.pushViewController(historyDetailsVC, animated: true)
     }
 }
 

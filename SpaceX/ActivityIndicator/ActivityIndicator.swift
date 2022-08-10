@@ -8,8 +8,9 @@
 import UIKit
 
 class ActivityIndicator: UIView {
-    private var rocket1 = UIImageView(image: UIImage(named: "rocket")?.withTintColor(.sxItemColor))
-    private var rocket2 = UIImageView(image: UIImage(named: "rocket")?.withTintColor(.sxRed))
+    
+    private lazy var rocket1 = UIImageView(image: UIImage(named: "rocket")?.withTintColor(.sxItemColor))
+    private lazy var rocket2 = UIImageView(image: UIImage(named: "rocket")?.withTintColor(.sxRed))
     private let positions: [CGRect] = [CGRect(x: 20, y: 10, width: 30, height: 30),
                                CGRect(x: 30, y: 7.5, width: 40, height: 40),
                                CGRect(x: 50, y: 10, width: 30, height: 30),

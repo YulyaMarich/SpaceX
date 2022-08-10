@@ -23,6 +23,7 @@
 		A331EA7A28844EA800740AF4 /* SpaceXAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EA7928844EA700740AF4 /* SpaceXAPI.swift */; };
 		A331EA7C288454A700740AF4 /* ApolloAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EA7B288454A700740AF4 /* ApolloAPI.swift */; };
 		A331EA8428856D2600740AF4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EA8328856D2600740AF4 /* HomeViewModel.swift */; };
+		A34B13CF289980CC0008C0CD /* YoutubePlayer in Frameworks */ = {isa = PBXBuildFile; productRef = A34B13CE289980CC0008C0CD /* YoutubePlayer */; };
 		A372A3F028759F150010A894 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A372A3EF28759F150010A894 /* AppDelegate.swift */; };
 		A372A3F228759F150010A894 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A372A3F128759F150010A894 /* SceneDelegate.swift */; };
 		A372A3F928759F170010A894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A372A3F828759F170010A894 /* Assets.xcassets */; };
@@ -35,6 +36,10 @@
 		A37388F3287C858200C1E7A4 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37388F2287C858200C1E7A4 /* Extension+UIColor.swift */; };
 		A37E71D8287AD25500E2B6C8 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = A37E71D7287AD25500E2B6C8 /* Apollo */; };
 		A37E71DA287AD25500E2B6C8 /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = A37E71D9287AD25500E2B6C8 /* ApolloWebSocket */; };
+		A3DDBFCC289A7DEE00329662 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDBFCB289A7DEE00329662 /* InfoView.swift */; };
+		A3DDBFCE289A8E2100329662 /* RocketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDBFCD289A8E2100329662 /* RocketView.swift */; };
+		A3DDBFF6289BF99200329662 /* HistoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDBFF5289BF99100329662 /* HistoryCardView.swift */; };
+		A3DDBFF928A13FA200329662 /* XCDYouTubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = A3DDBFF828A13FA200329662 /* XCDYouTubeKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +73,9 @@
 		A37E71DE287AE7D700E2B6C8 /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		A3A2EA36287DA99000C62B81 /* HomeInfoQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = HomeInfoQuery.graphql; sourceTree = "<group>"; };
 		A3A2EA37287DA9A400C62B81 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		A3DDBFCB289A7DEE00329662 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		A3DDBFCD289A8E2100329662 /* RocketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketView.swift; sourceTree = "<group>"; };
+		A3DDBFF5289BF99100329662 /* HistoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A34B13CF289980CC0008C0CD /* YoutubePlayer in Frameworks */,
+				A3DDBFF928A13FA200329662 /* XCDYouTubeKit in Frameworks */,
 				A37E71D8287AD25500E2B6C8 /* Apollo in Frameworks */,
 				A37E71DA287AD25500E2B6C8 /* ApolloWebSocket in Frameworks */,
 			);
@@ -87,6 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				A30ACE11288C44400047734F /* HistoryDetailViewController.swift */,
+				A3DDBFCB289A7DEE00329662 /* InfoView.swift */,
+				A3DDBFCD289A8E2100329662 /* RocketView.swift */,
 			);
 			path = HistoryDetailsScreen;
 			sourceTree = "<group>";
@@ -127,6 +139,7 @@
 				A30ACDC728887F9D0047734F /* HistoryView.swift */,
 				A30ACDC928892C0F0047734F /* CompanyDescriptionView.swift */,
 				A30ACE0F288AB6A80047734F /* BackroundCardView.swift */,
+				A3DDBFF5289BF99100329662 /* HistoryCardView.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -150,9 +163,9 @@
 		A372A3EE28759F150010A894 /* SpaceX */ = {
 			isa = PBXGroup;
 			children = (
-				A30ACE13288FD3070047734F /* HistoryDetailsScreen */,
 				A3A2EA38287DC83D00C62B81 /* ViewControllers */,
 				A331EA8228856D1000740AF4 /* HomeScreen */,
+				A30ACE13288FD3070047734F /* HistoryDetailsScreen */,
 				A30ACE14288FDC230047734F /* ActivityIndicator */,
 				A37E71DD287AD8CC00E2B6C8 /* GraphQL */,
 				A372A4032875B0190010A894 /* Sources */,
@@ -236,6 +249,8 @@
 			packageProductDependencies = (
 				A37E71D7287AD25500E2B6C8 /* Apollo */,
 				A37E71D9287AD25500E2B6C8 /* ApolloWebSocket */,
+				A34B13CE289980CC0008C0CD /* YoutubePlayer */,
+				A3DDBFF828A13FA200329662 /* XCDYouTubeKit */,
 			);
 			productName = SpaceX;
 			productReference = A372A3EC28759F150010A894 /* SpaceX.app */;
@@ -267,6 +282,8 @@
 			mainGroup = A372A3E328759F150010A894;
 			packageReferences = (
 				A37E71D6287AD25500E2B6C8 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				A34B13CD289980CB0008C0CD /* XCRemoteSwiftPackageReference "YoutubePlayer" */,
+				A3DDBFF728A13FA200329662 /* XCRemoteSwiftPackageReference "XCDYouTubeKit" */,
 			);
 			productRefGroup = A372A3ED28759F150010A894 /* Products */;
 			projectDirPath = "";
@@ -338,6 +355,7 @@
 				A37388F1287C1EE800C1E7A4 /* RocketsViewController.swift in Sources */,
 				A30ACDCA28892C0F0047734F /* CompanyDescriptionView.swift in Sources */,
 				A37388E9287C1E9200C1E7A4 /* MainTabBarController.swift in Sources */,
+				A3DDBFCE289A8E2100329662 /* RocketView.swift in Sources */,
 				A30ACE10288AB6A80047734F /* BackroundCardView.swift in Sources */,
 				A30ACE12288C44400047734F /* HistoryDetailViewController.swift in Sources */,
 				A37388EF287C1EDE00C1E7A4 /* LaunchesViewController.swift in Sources */,
@@ -356,6 +374,8 @@
 				A37388F3287C858200C1E7A4 /* Extension+UIColor.swift in Sources */,
 				A331EA8428856D2600740AF4 /* HomeViewModel.swift in Sources */,
 				A30ACDA62886F4B30047734F /* Extension + UIImage.swift in Sources */,
+				A3DDBFCC289A7DEE00329662 /* InfoView.swift in Sources */,
+				A3DDBFF6289BF99200329662 /* HistoryCardView.swift in Sources */,
 				A331EA7C288454A700740AF4 /* ApolloAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,6 +522,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -529,6 +550,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -566,6 +588,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A34B13CD289980CB0008C0CD /* XCRemoteSwiftPackageReference "YoutubePlayer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/NicholasMata/YoutubePlayer";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		A37E71D6287AD25500E2B6C8 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
@@ -574,9 +604,22 @@
 				kind = branch;
 			};
 		};
+		A3DDBFF728A13FA200329662 /* XCRemoteSwiftPackageReference "XCDYouTubeKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/0xced/XCDYouTubeKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A34B13CE289980CC0008C0CD /* YoutubePlayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A34B13CD289980CB0008C0CD /* XCRemoteSwiftPackageReference "YoutubePlayer" */;
+			productName = YoutubePlayer;
+		};
 		A37E71D7287AD25500E2B6C8 /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A37E71D6287AD25500E2B6C8 /* XCRemoteSwiftPackageReference "apollo-ios" */;
@@ -586,6 +629,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A37E71D6287AD25500E2B6C8 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = ApolloWebSocket;
+		};
+		A3DDBFF828A13FA200329662 /* XCDYouTubeKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3DDBFF728A13FA200329662 /* XCRemoteSwiftPackageReference "XCDYouTubeKit" */;
+			productName = XCDYouTubeKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
