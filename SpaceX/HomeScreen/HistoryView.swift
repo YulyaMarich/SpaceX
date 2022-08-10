@@ -69,7 +69,6 @@ class HistoryView: UIView {
     }
     
     private func setUpView() {
-        backgroundColor = .sxTabBarColor
         setUpConstraints()
         setUpArticleButton()
     }
