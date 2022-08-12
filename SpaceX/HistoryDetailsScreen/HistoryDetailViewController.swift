@@ -11,6 +11,7 @@ import YoutubePlayer
 class HistoryDetailViewController: UIViewController {
     
     private var data: HomeInfoQuery.Data.History?
+    private var flight: ApIflight?
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -74,6 +75,7 @@ class HistoryDetailViewController: UIViewController {
     
     init(data: HomeInfoQuery.Data.History?) {
         self.data = data
+        self.flight = data?.flight?.fragments.apIflight
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -108,7 +110,6 @@ class HistoryDetailViewController: UIViewController {
                                    leading: scrollView.leadingAnchor,
                                    bottom: scrollView.bottomAnchor,
                                    trailing: scrollView.trailingAnchor)
-        scrollViewContainer.translatesAutoresizingMaskIntoConstraints = false
         scrollViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         
         missionNameLabel.anchor(top: scrollViewContainer.topAnchor,
@@ -155,14 +156,15 @@ class HistoryDetailViewController: UIViewController {
         
         let missionNameString = NSMutableAttributedString(string: "Mission name ", attributes: missionNameAttributes)
         
-        let name = NSAttributedString(string: flight().missionName ?? "", attributes: nameAttributes)
+        let name = NSAttributedString(string: flight?.missionName ?? "", attributes: nameAttributes)
         
         missionNameString.append(name)
         missionNameLabel.attributedText = missionNameString
     }
     
     private func setUpInfoView() {
-        let infoViewElements = InfoView(flight: flight())
+        guard let flight = flight else { return }
+        let infoViewElements = InfoView(flight: flight)
         infoView.addSubview(infoViewElements)
         infoViewElements.anchor(top: infoView.topAnchor,
                                 leading: infoView.leadingAnchor,
@@ -184,7 +186,7 @@ class HistoryDetailViewController: UIViewController {
     
     
     private func createRocketView() {
-        let rocketView = RocketView(flight: flight().rocket?.rocket)
+        let rocketView = RocketView(flight: flight?.rocket?.rocket)
         scrollView.addSubview(rocketView)
         rocketView.anchor(top: videoView.bottomAnchor,
                           leading: scrollView.contentLayoutGuide.leadingAnchor,
@@ -202,10 +204,5 @@ class HistoryDetailViewController: UIViewController {
         infoNotFound.translatesAutoresizingMaskIntoConstraints = false
         infoNotFound.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         infoNotFound.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
-    }
-    
-    private func flight() -> ApIflight {
-        guard let flight = data?.flight?.fragments.apIflight  else { return ApIflight() }
-        return flight
     }
 }
