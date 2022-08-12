@@ -17,6 +17,24 @@
         "revision" : "4d543d811ee644fa4cc4bfa0be996b4dd6ba0f54",
         "version" : "0.13.3"
       }
+    },
+    {
+      "identity" : "xcdyoutubekit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/0xced/XCDYouTubeKit.git",
+      "state" : {
+        "revision" : "23f765941b36d6d28215ab81a37af1039d29138b",
+        "version" : "2.15.2"
+      }
+    },
+    {
+      "identity" : "youtubeplayer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/NicholasMata/YoutubePlayer",
+      "state" : {
+        "branch" : "main",
+        "revision" : "7e22c09b4b6d9e9ba905c5e8757ecad400cf870a"
+      }
     }
   ],
   "version" : 2

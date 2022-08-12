@@ -8,6 +8,7 @@
 import UIKit
 
 private enum TabBarItems {
+    
     case homeViewController
     case launchesViewController
     case rocketsViewController
@@ -43,7 +44,7 @@ class MainTabBarController: UITabBarController {
     }
     
     private func setUpTabBar() {
-        tabBar.isTranslucent = false
+        tabBar.isTranslucent = true
         tabBar.backgroundColor = .sxTabBarColor
         let dataSource: [TabBarItems] = [.homeViewController, .launchesViewController, .rocketsViewController]
         self.viewControllers = dataSource.map {
@@ -75,8 +76,8 @@ class MainTabBarController: UITabBarController {
     
     private func makeTabBarShadow() {
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
-        tabBar.layer.shadowRadius = 2
+        tabBar.layer.shadowRadius = 4
         tabBar.layer.shadowColor = UIColor.black.cgColor
-        tabBar.layer.shadowOpacity = 0.3
+        tabBar.layer.shadowOpacity = 0.4
     }
 }

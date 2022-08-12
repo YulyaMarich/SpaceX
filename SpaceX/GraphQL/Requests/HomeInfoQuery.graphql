@@ -14,5 +14,25 @@ query HomeInfo {
     links {
       article
     }
+    flight {
+     ...APIflight
+}
   }
 }
+
+   fragment APIflight on Launch {
+    mission_name
+    details
+    launch_year
+    launch_success
+    links {
+       video_link
+    }
+     rocket {
+        rocket {
+          name
+          country
+          description
+        }
+      }
+    }

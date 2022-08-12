@@ -28,11 +28,21 @@ public final class HomeInfoQuery: GraphQLQuery {
           __typename
           article
         }
+        flight {
+          __typename
+          ...APIflight
+        }
       }
     }
     """
 
   public let operationName: String = "HomeInfo"
+
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + ApIflight.fragmentDefinition)
+    return document
+  }
 
   public init() {
   }
@@ -202,6 +212,7 @@ public final class HomeInfoQuery: GraphQLQuery {
           GraphQLField("title", type: .scalar(String.self)),
           GraphQLField("details", type: .scalar(String.self)),
           GraphQLField("links", type: .object(Link.selections)),
+          GraphQLField("flight", type: .object(Flight.selections)),
         ]
       }
 
@@ -211,8 +222,8 @@ public final class HomeInfoQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(title: String? = nil, details: String? = nil, links: Link? = nil) {
-        self.init(unsafeResultMap: ["__typename": "History", "title": title, "details": details, "links": links.flatMap { (value: Link) -> ResultMap in value.resultMap }])
+      public init(title: String? = nil, details: String? = nil, links: Link? = nil, flight: Flight? = nil) {
+        self.init(unsafeResultMap: ["__typename": "History", "title": title, "details": details, "links": links.flatMap { (value: Link) -> ResultMap in value.resultMap }, "flight": flight.flatMap { (value: Flight) -> ResultMap in value.resultMap }])
       }
 
       public var __typename: String {
@@ -248,6 +259,15 @@ public final class HomeInfoQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue?.resultMap, forKey: "links")
+        }
+      }
+
+      public var flight: Flight? {
+        get {
+          return (resultMap["flight"] as? ResultMap).flatMap { Flight(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "flight")
         }
       }
 
@@ -287,6 +307,309 @@ public final class HomeInfoQuery: GraphQLQuery {
           set {
             resultMap.updateValue(newValue, forKey: "article")
           }
+        }
+      }
+
+      public struct Flight: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Launch"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLFragmentSpread(ApIflight.self),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var apIflight: ApIflight {
+            get {
+              return ApIflight(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+public struct ApIflight: GraphQLFragment {
+  /// The raw GraphQL definition of this fragment.
+  public static let fragmentDefinition: String =
+    """
+    fragment APIflight on Launch {
+      __typename
+      mission_name
+      details
+      launch_year
+      launch_success
+      links {
+        __typename
+        video_link
+      }
+      rocket {
+        __typename
+        rocket {
+          __typename
+          name
+          country
+          description
+        }
+      }
+    }
+    """
+
+  public static let possibleTypes: [String] = ["Launch"]
+
+  public static var selections: [GraphQLSelection] {
+    return [
+      GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+      GraphQLField("mission_name", type: .scalar(String.self)),
+      GraphQLField("details", type: .scalar(String.self)),
+      GraphQLField("launch_year", type: .scalar(String.self)),
+      GraphQLField("launch_success", type: .scalar(Bool.self)),
+      GraphQLField("links", type: .object(Link.selections)),
+      GraphQLField("rocket", type: .object(Rocket.selections)),
+    ]
+  }
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public init(missionName: String? = nil, details: String? = nil, launchYear: String? = nil, launchSuccess: Bool? = nil, links: Link? = nil, rocket: Rocket? = nil) {
+    self.init(unsafeResultMap: ["__typename": "Launch", "mission_name": missionName, "details": details, "launch_year": launchYear, "launch_success": launchSuccess, "links": links.flatMap { (value: Link) -> ResultMap in value.resultMap }, "rocket": rocket.flatMap { (value: Rocket) -> ResultMap in value.resultMap }])
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  public var missionName: String? {
+    get {
+      return resultMap["mission_name"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "mission_name")
+    }
+  }
+
+  public var details: String? {
+    get {
+      return resultMap["details"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "details")
+    }
+  }
+
+  public var launchYear: String? {
+    get {
+      return resultMap["launch_year"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "launch_year")
+    }
+  }
+
+  public var launchSuccess: Bool? {
+    get {
+      return resultMap["launch_success"] as? Bool
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "launch_success")
+    }
+  }
+
+  public var links: Link? {
+    get {
+      return (resultMap["links"] as? ResultMap).flatMap { Link(unsafeResultMap: $0) }
+    }
+    set {
+      resultMap.updateValue(newValue?.resultMap, forKey: "links")
+    }
+  }
+
+  public var rocket: Rocket? {
+    get {
+      return (resultMap["rocket"] as? ResultMap).flatMap { Rocket(unsafeResultMap: $0) }
+    }
+    set {
+      resultMap.updateValue(newValue?.resultMap, forKey: "rocket")
+    }
+  }
+
+  public struct Link: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["LaunchLinks"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("video_link", type: .scalar(String.self)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(videoLink: String? = nil) {
+      self.init(unsafeResultMap: ["__typename": "LaunchLinks", "video_link": videoLink])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    public var videoLink: String? {
+      get {
+        return resultMap["video_link"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "video_link")
+      }
+    }
+  }
+
+  public struct Rocket: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["LaunchRocket"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("rocket", type: .object(Rocket.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(rocket: Rocket? = nil) {
+      self.init(unsafeResultMap: ["__typename": "LaunchRocket", "rocket": rocket.flatMap { (value: Rocket) -> ResultMap in value.resultMap }])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    public var rocket: Rocket? {
+      get {
+        return (resultMap["rocket"] as? ResultMap).flatMap { Rocket(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "rocket")
+      }
+    }
+
+    public struct Rocket: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Rocket"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("name", type: .scalar(String.self)),
+          GraphQLField("country", type: .scalar(String.self)),
+          GraphQLField("description", type: .scalar(String.self)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(name: String? = nil, country: String? = nil, description: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Rocket", "name": name, "country": country, "description": description])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var name: String? {
+        get {
+          return resultMap["name"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "name")
+        }
+      }
+
+      public var country: String? {
+        get {
+          return resultMap["country"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "country")
+        }
+      }
+
+      public var description: String? {
+        get {
+          return resultMap["description"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "description")
         }
       }
     }

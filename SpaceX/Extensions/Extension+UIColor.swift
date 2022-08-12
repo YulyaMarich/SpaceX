@@ -7,6 +7,7 @@
 
 import UIKit
 extension UIColor {
+    
     static var sxRed: UIColor {
         return UIColor(named: "sxRed") ?? .orange
     }
@@ -29,5 +30,9 @@ extension UIColor {
     
     static var sxTwittterColor: UIColor {
         return UIColor(named: "sxTwitter") ?? .orange
+    }
+    
+    static var sxGreen: UIColor {
+        return UIColor(named: "sxGreen") ?? .orange
     }
 }

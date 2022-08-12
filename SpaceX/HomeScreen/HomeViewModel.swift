@@ -16,6 +16,7 @@ protocol HomeViewModelProtocol {
 }
 
 class HomeViewModel: HomeViewModelProtocol {
+    
     init(spaceXService: SpaceXAPI = SpaceXService()) {
         self.spaceXService = spaceXService
     }
