@@ -10,4 +10,6 @@ import Apollo
 
 protocol SpaceXAPI {
     func executeHomeInfoQuery(completion: ((Result<GraphQLResult<HomeInfoQuery.Data>, Error>) -> Void)?) -> Cancellable?
+    
+    func executeLaunchesQuery(completion: ((Result<GraphQLResult<LaunchesQuery.Data>, Error>) -> Void)?) -> Cancellable?
 }

@@ -39,7 +39,12 @@
 		A3DDBFCC289A7DEE00329662 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDBFCB289A7DEE00329662 /* InfoView.swift */; };
 		A3DDBFCE289A8E2100329662 /* RocketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDBFCD289A8E2100329662 /* RocketView.swift */; };
 		A3DDBFF6289BF99200329662 /* HistoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDBFF5289BF99100329662 /* HistoryCardView.swift */; };
-		A3DDBFF928A13FA200329662 /* XCDYouTubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = A3DDBFF828A13FA200329662 /* XCDYouTubeKit */; };
+		A3E6998028A7BD2D008D336E /* LaunchesQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A3E6997F28A7BD2D008D336E /* LaunchesQuery.graphql */; };
+		A3E6998528A7C2BC008D336E /* LaunchesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6998428A7C2BC008D336E /* LaunchesViewModel.swift */; };
+		A3E6998728A7ED75008D336E /* LaunchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6998628A7ED75008D336E /* LaunchCollectionViewCell.swift */; };
+		A3E699AB28A93CD1008D336E /* LaunchCollectionViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E699AA28A93CD0008D336E /* LaunchCollectionViewCellModel.swift */; };
+		A3E699AD28AA7A44008D336E /* LaunchCellAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E699AC28AA7A43008D336E /* LaunchCellAttributes.swift */; };
+		A3E699B128AACCD7008D336E /* SX-Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3E699B028AACCD7008D336E /* SX-Inter-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +81,12 @@
 		A3DDBFCB289A7DEE00329662 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		A3DDBFCD289A8E2100329662 /* RocketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketView.swift; sourceTree = "<group>"; };
 		A3DDBFF5289BF99100329662 /* HistoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCardView.swift; sourceTree = "<group>"; };
+		A3E6997F28A7BD2D008D336E /* LaunchesQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LaunchesQuery.graphql; sourceTree = "<group>"; };
+		A3E6998428A7C2BC008D336E /* LaunchesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesViewModel.swift; sourceTree = "<group>"; };
+		A3E6998628A7ED75008D336E /* LaunchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCollectionViewCell.swift; sourceTree = "<group>"; };
+		A3E699AA28A93CD0008D336E /* LaunchCollectionViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCollectionViewCellModel.swift; sourceTree = "<group>"; };
+		A3E699AC28AA7A43008D336E /* LaunchCellAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCellAttributes.swift; sourceTree = "<group>"; };
+		A3E699B028AACCD7008D336E /* SX-Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SX-Inter-Bold.ttf"; path = "../../../../../../Downloads/SX-Inter-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +95,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A34B13CF289980CC0008C0CD /* YoutubePlayer in Frameworks */,
-				A3DDBFF928A13FA200329662 /* XCDYouTubeKit in Frameworks */,
 				A37E71D8287AD25500E2B6C8 /* Apollo in Frameworks */,
 				A37E71DA287AD25500E2B6C8 /* ApolloWebSocket in Frameworks */,
 			);
@@ -115,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				A3A2EA36287DA99000C62B81 /* HomeInfoQuery.graphql */,
+				A3E6997F28A7BD2D008D336E /* LaunchesQuery.graphql */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -166,6 +177,7 @@
 				A3A2EA38287DC83D00C62B81 /* ViewControllers */,
 				A331EA8228856D1000740AF4 /* HomeScreen */,
 				A30ACE13288FD3070047734F /* HistoryDetailsScreen */,
+				A3E6998128A7C269008D336E /* LaunchesScreen */,
 				A30ACE14288FDC230047734F /* ActivityIndicator */,
 				A37E71DD287AD8CC00E2B6C8 /* GraphQL */,
 				A372A4032875B0190010A894 /* Sources */,
@@ -180,6 +192,7 @@
 			children = (
 				A372A3F828759F170010A894 /* Assets.xcassets */,
 				A30ACDA32886B18B0047734F /* SX-Inter-Regular.ttf */,
+				A3E699B028AACCD7008D336E /* SX-Inter-Bold.ttf */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -211,7 +224,6 @@
 			children = (
 				A37388E8287C1E9200C1E7A4 /* MainTabBarController.swift */,
 				A37388EA287C1EB400C1E7A4 /* NavigationController.swift */,
-				A37388EE287C1EDE00C1E7A4 /* LaunchesViewController.swift */,
 				A37388F0287C1EE800C1E7A4 /* RocketsViewController.swift */,
 			);
 			path = ViewControllers;
@@ -226,6 +238,18 @@
 				A30ACE17289025750047734F /* Extension + UIViewController.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A3E6998128A7C269008D336E /* LaunchesScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A37388EE287C1EDE00C1E7A4 /* LaunchesViewController.swift */,
+				A3E6998428A7C2BC008D336E /* LaunchesViewModel.swift */,
+				A3E6998628A7ED75008D336E /* LaunchCollectionViewCell.swift */,
+				A3E699AA28A93CD0008D336E /* LaunchCollectionViewCellModel.swift */,
+				A3E699AC28AA7A43008D336E /* LaunchCellAttributes.swift */,
+			);
+			path = LaunchesScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,7 +274,6 @@
 				A37E71D7287AD25500E2B6C8 /* Apollo */,
 				A37E71D9287AD25500E2B6C8 /* ApolloWebSocket */,
 				A34B13CE289980CC0008C0CD /* YoutubePlayer */,
-				A3DDBFF828A13FA200329662 /* XCDYouTubeKit */,
 			);
 			productName = SpaceX;
 			productReference = A372A3EC28759F150010A894 /* SpaceX.app */;
@@ -283,7 +306,6 @@
 			packageReferences = (
 				A37E71D6287AD25500E2B6C8 /* XCRemoteSwiftPackageReference "apollo-ios" */,
 				A34B13CD289980CB0008C0CD /* XCRemoteSwiftPackageReference "YoutubePlayer" */,
-				A3DDBFF728A13FA200329662 /* XCRemoteSwiftPackageReference "XCDYouTubeKit" */,
 			);
 			productRefGroup = A372A3ED28759F150010A894 /* Products */;
 			projectDirPath = "";
@@ -302,6 +324,8 @@
 				A30ACDA42886B18B0047734F /* SX-Inter-Regular.ttf in Resources */,
 				A372A3FC28759F170010A894 /* LaunchScreen.storyboard in Resources */,
 				A372A3F928759F170010A894 /* Assets.xcassets in Resources */,
+				A3E699B128AACCD7008D336E /* SX-Inter-Bold.ttf in Resources */,
+				A3E6998028A7BD2D008D336E /* LaunchesQuery.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,22 +385,26 @@
 				A37388EF287C1EDE00C1E7A4 /* LaunchesViewController.swift in Sources */,
 				A30ACE18289025760047734F /* Extension + UIViewController.swift in Sources */,
 				A30ACDA228868F860047734F /* Extension + UIView.swift in Sources */,
+				A3E699AD28AA7A44008D336E /* LaunchCellAttributes.swift in Sources */,
 				A37388EB287C1EB400C1E7A4 /* NavigationController.swift in Sources */,
 				A331EA772884311400740AF4 /* Network.swift in Sources */,
 				A30ACDC828887F9D0047734F /* HistoryView.swift in Sources */,
 				A372A3F028759F150010A894 /* AppDelegate.swift in Sources */,
 				A331EA7328842E9900740AF4 /* NetworkManager.swift in Sources */,
 				A372A3F228759F150010A894 /* SceneDelegate.swift in Sources */,
+				A3E6998528A7C2BC008D336E /* LaunchesViewModel.swift in Sources */,
 				A331EA7A28844EA800740AF4 /* SpaceXAPI.swift in Sources */,
 				A37388ED287C1ED200C1E7A4 /* HomeViewController.swift in Sources */,
 				A30ACE16288FDC460047734F /* ActivityIndicator.swift in Sources */,
 				A331EA782884448900740AF4 /* API.swift in Sources */,
+				A3E699AB28A93CD1008D336E /* LaunchCollectionViewCellModel.swift in Sources */,
 				A37388F3287C858200C1E7A4 /* Extension+UIColor.swift in Sources */,
 				A331EA8428856D2600740AF4 /* HomeViewModel.swift in Sources */,
 				A30ACDA62886F4B30047734F /* Extension + UIImage.swift in Sources */,
 				A3DDBFCC289A7DEE00329662 /* InfoView.swift in Sources */,
 				A3DDBFF6289BF99200329662 /* HistoryCardView.swift in Sources */,
 				A331EA7C288454A700740AF4 /* ApolloAPI.swift in Sources */,
+				A3E6998728A7ED75008D336E /* LaunchCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,14 +632,6 @@
 				kind = branch;
 			};
 		};
-		A3DDBFF728A13FA200329662 /* XCRemoteSwiftPackageReference "XCDYouTubeKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/0xced/XCDYouTubeKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -629,11 +649,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A37E71D6287AD25500E2B6C8 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = ApolloWebSocket;
-		};
-		A3DDBFF828A13FA200329662 /* XCDYouTubeKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A3DDBFF728A13FA200329662 /* XCRemoteSwiftPackageReference "XCDYouTubeKit" */;
-			productName = XCDYouTubeKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

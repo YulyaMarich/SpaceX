@@ -35,4 +35,8 @@ extension UIColor {
     static var sxGreen: UIColor {
         return UIColor(named: "sxGreen") ?? .orange
     }
+    
+    static var sxGray: UIColor {
+        return UIColor(named: "sxGray") ?? .orange
+    }
 }
