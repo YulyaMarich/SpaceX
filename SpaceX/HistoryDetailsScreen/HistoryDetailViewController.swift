@@ -73,6 +73,11 @@ class HistoryDetailViewController: UIViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     init(data: HomeInfoQuery.Data.History?) {
         self.data = data
         self.flight = data?.flight?.fragments.apIflight

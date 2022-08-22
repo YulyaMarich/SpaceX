@@ -19,15 +19,6 @@
       }
     },
     {
-      "identity" : "xcdyoutubekit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/0xced/XCDYouTubeKit.git",
-      "state" : {
-        "revision" : "23f765941b36d6d28215ab81a37af1039d29138b",
-        "version" : "2.15.2"
-      }
-    },
-    {
       "identity" : "youtubeplayer",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/NicholasMata/YoutubePlayer",

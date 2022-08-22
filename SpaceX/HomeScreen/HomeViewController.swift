@@ -36,8 +36,7 @@ class HomeViewController: UIViewController {
         return stack
     }()
     
-    private var viewModel: HomeViewModelProtocol
-    private var data: HomeInfoQuery.Data.History?
+    private let viewModel: HomeViewModelProtocol
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +63,6 @@ class HomeViewController: UIViewController {
         navigationItem.title = "SpaceX"
         view.backgroundColor = .sxWhite
     }
-    
     
     private func addSubviews() {
         view.addSubview(scrollView)
