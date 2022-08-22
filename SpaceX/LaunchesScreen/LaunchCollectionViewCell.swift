@@ -11,7 +11,6 @@ class LaunchCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "LaunchCollectionViewCell"
     var viewModel: LaunchCollectionViewCellModelProtocol?
-    var collectionView: UICollectionView?
     
     private lazy var redLine: UIView = {
         let line = UIView()
@@ -72,7 +71,6 @@ class LaunchCollectionViewCell: UICollectionViewCell {
         missionPatch.isHidden = true
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
-   
     }
     
     private func addSubviews() {

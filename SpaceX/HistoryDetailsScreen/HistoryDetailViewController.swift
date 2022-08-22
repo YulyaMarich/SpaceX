@@ -76,7 +76,6 @@ class HistoryDetailViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         navigationController?.navigationBar.prefersLargeTitles = true
-        
     }
     
     init(data: HomeInfoQuery.Data.History?) {

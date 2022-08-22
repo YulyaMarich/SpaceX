@@ -18,14 +18,14 @@ class SpaceXService: SpaceXAPI {
     
     func executeHomeInfoQuery(completion: ((Result<GraphQLResult<HomeInfoQuery.Data>, Error>) -> Void)?) -> Cancellable? {
         let homeInfoQuery = HomeInfoQuery()
-        let cancalable = networkManager.fetchQuery(query: homeInfoQuery, completion: completion)
-        return cancalable
+        let cancallable = networkManager.fetchQuery(query: homeInfoQuery, completion: completion)
+        return cancallable
     }
     
     func executeLaunchesQuery(completion: ((Result<GraphQLResult<LaunchesQuery.Data>, Error>) -> Void)?) -> Cancellable? {
         let launchesQuery = LaunchesQuery()
-        let cancalable = networkManager.fetchQuery(query: launchesQuery, completion: completion)
-        return cancalable
+        let cancallable = networkManager.fetchQuery(query: launchesQuery, completion: completion)
+        return cancallable
     }
     
 }

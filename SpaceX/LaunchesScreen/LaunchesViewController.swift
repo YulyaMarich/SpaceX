@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class LaunchesViewController: UIViewController {
     
     private let viewModel: LaunchesViewModelProtocol
@@ -17,7 +16,7 @@ class LaunchesViewController: UIViewController {
         layout.scrollDirection = .vertical
         layout.sectionInset = .init(top: 20, left: .zero, bottom: 20, right: .zero)
         let collectionView = UICollectionView(frame: .zero,
-                                          collectionViewLayout: layout)
+                                              collectionViewLayout: layout)
         return collectionView
     }()
     
@@ -81,7 +80,7 @@ extension LaunchesViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-          return 20
+        return 20
     }
 }
 
