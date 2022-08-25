@@ -6,11 +6,27 @@ query Launches {
       site_name
     }
     rocket {
+    rocket {
+  name
+  country
+  height {
+    meters
+  }
+  mass {
+    kg
+  }
+  diameter {
+    meters
+  }
+  success_rate_pct
+  description
+}
       rocket_name
     }
     launch_success
     links {
       mission_patch_small
+      mission_patch
     }
   }
 }
