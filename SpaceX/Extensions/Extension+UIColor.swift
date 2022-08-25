@@ -28,7 +28,7 @@ extension UIColor {
         return UIColor(named: "sxIconColor") ?? .orange
     }
     
-    static var sxTwittterColor: UIColor {
+    static var sxBlue: UIColor {
         return UIColor(named: "sxTwitter") ?? .orange
     }
     

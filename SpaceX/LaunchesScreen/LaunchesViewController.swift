@@ -69,18 +69,25 @@ extension LaunchesViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LaunchCollectionViewCell.identifier,
                                                       for: indexPath) as! LaunchCollectionViewCell
-        let launches = viewModel.data?.launches
-        cell.viewModel = LaunchCollectionViewCellModel(data: launches?[indexPath.item], indexPath: indexPath)
+        cell.viewModel = LaunchCollectionViewCellModel(data: viewModel.data?.launches?[indexPath.item], indexPath: indexPath)
         cell.configure()
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.safeAreaLayoutGuide.layoutFrame.width - 40, height: 130)
+        return CGSize(width: collectionView.safeAreaLayoutGuide.layoutFrame.width - 40, height: 150)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let viewModel = LaunchDetailsViewModel(data: viewModel.data?.launches?[indexPath.item])
+        let launchDetailsVC = LaunchDetailsViewController(viewModel: viewModel)
+        let navigationVC = UINavigationController(rootViewController: launchDetailsVC)
+        navigationVC.modalPresentationStyle = .fullScreen
+        self.present(navigationVC, animated: true)
     }
 }
 

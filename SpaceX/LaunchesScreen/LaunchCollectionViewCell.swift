@@ -97,9 +97,9 @@ class LaunchCollectionViewCell: UICollectionViewCell {
         missionName.anchor(top: redLine.topAnchor,
                            leading: redLine.trailingAnchor,
                            bottom: nil,
-                           trailing: launchResult.leadingAnchor,
+                           trailing: nil,
                            spacing: .init(top: .zero, left: 7, bottom: 0, right: 0))
-        missionName.setContentHuggingPriority(UILayoutPriority(rawValue: 250), for: .horizontal)
+        missionName.trailingAnchor.constraint(lessThanOrEqualTo: launchResult.leadingAnchor).isActive = true
         
         launchDateLocal.anchor(top: missionName.bottomAnchor,
                                leading: missionName.leadingAnchor,
@@ -113,11 +113,11 @@ class LaunchCollectionViewCell: UICollectionViewCell {
                         trailing: nil,
                         spacing: .init(top: 2, left: 0, bottom: 0, right: 0))
         
-        rocketNameBackground.anchor(top: siteName.bottomAnchor,
+        rocketNameBackground.anchor(top: nil,
                                     leading: siteName.leadingAnchor,
-                                    bottom: nil,
+                                    bottom: contentView.bottomAnchor,
                                     trailing: nil,
-                                    spacing: .init(top: 15, left: 0, bottom: 0, right: 0))
+                                    spacing: .init(top: 15, left: 0, bottom: 20, right: 0))
         
         rocketName.anchor(top: rocketNameBackground.topAnchor,
                           leading: rocketNameBackground.leadingAnchor,
@@ -130,19 +130,20 @@ class LaunchCollectionViewCell: UICollectionViewCell {
                             bottom: nil,
                             trailing: contentView.trailingAnchor,
                             spacing: .init(top: 15, left: 5, bottom: 0, right: 20))
+        launchResult.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 751), for: .horizontal)
         
         missionPatch.anchor(top: launchResult.bottomAnchor,
                             leading: nil,
                             bottom: nil,
                             trailing: contentView.trailingAnchor,
-                            spacing: .init(top: 10, left: 5, bottom: 0, right: 20),
+                            spacing: .init(top: 10, left: 0, bottom: 0, right: 20),
                             size: CGSize(width: 60, height: 60))
         
         activityIndicator.anchor(top: launchResult.bottomAnchor,
                                  leading: nil,
                                  bottom: nil,
                                  trailing: contentView.trailingAnchor,
-                                 spacing: .init(top: 10, left: 5, bottom: 0, right: 20),
+                                 spacing: .init(top: 10, left: 0, bottom: 0, right: 20),
                                  size: CGSize(width: 60, height: 60))
     }
     

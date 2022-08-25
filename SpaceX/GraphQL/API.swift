@@ -380,12 +380,32 @@ public final class LaunchesQuery: GraphQLQuery {
         }
         rocket {
           __typename
+          rocket {
+            __typename
+            name
+            country
+            height {
+              __typename
+              meters
+            }
+            mass {
+              __typename
+              kg
+            }
+            diameter {
+              __typename
+              meters
+            }
+            success_rate_pct
+            description
+          }
           rocket_name
         }
         launch_success
         links {
           __typename
           mission_patch_small
+          mission_patch
         }
       }
     }
@@ -557,6 +577,7 @@ public final class LaunchesQuery: GraphQLQuery {
         public static var selections: [GraphQLSelection] {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("rocket", type: .object(Rocket.selections)),
             GraphQLField("rocket_name", type: .scalar(String.self)),
           ]
         }
@@ -567,8 +588,8 @@ public final class LaunchesQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(rocketName: String? = nil) {
-          self.init(unsafeResultMap: ["__typename": "LaunchRocket", "rocket_name": rocketName])
+        public init(rocket: Rocket? = nil, rocketName: String? = nil) {
+          self.init(unsafeResultMap: ["__typename": "LaunchRocket", "rocket": rocket.flatMap { (value: Rocket) -> ResultMap in value.resultMap }, "rocket_name": rocketName])
         }
 
         public var __typename: String {
@@ -580,12 +601,237 @@ public final class LaunchesQuery: GraphQLQuery {
           }
         }
 
+        public var rocket: Rocket? {
+          get {
+            return (resultMap["rocket"] as? ResultMap).flatMap { Rocket(unsafeResultMap: $0) }
+          }
+          set {
+            resultMap.updateValue(newValue?.resultMap, forKey: "rocket")
+          }
+        }
+
         public var rocketName: String? {
           get {
             return resultMap["rocket_name"] as? String
           }
           set {
             resultMap.updateValue(newValue, forKey: "rocket_name")
+          }
+        }
+
+        public struct Rocket: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["Rocket"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("name", type: .scalar(String.self)),
+              GraphQLField("country", type: .scalar(String.self)),
+              GraphQLField("height", type: .object(Height.selections)),
+              GraphQLField("mass", type: .object(Mass.selections)),
+              GraphQLField("diameter", type: .object(Diameter.selections)),
+              GraphQLField("success_rate_pct", type: .scalar(Int.self)),
+              GraphQLField("description", type: .scalar(String.self)),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(name: String? = nil, country: String? = nil, height: Height? = nil, mass: Mass? = nil, diameter: Diameter? = nil, successRatePct: Int? = nil, description: String? = nil) {
+            self.init(unsafeResultMap: ["__typename": "Rocket", "name": name, "country": country, "height": height.flatMap { (value: Height) -> ResultMap in value.resultMap }, "mass": mass.flatMap { (value: Mass) -> ResultMap in value.resultMap }, "diameter": diameter.flatMap { (value: Diameter) -> ResultMap in value.resultMap }, "success_rate_pct": successRatePct, "description": description])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          public var name: String? {
+            get {
+              return resultMap["name"] as? String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "name")
+            }
+          }
+
+          public var country: String? {
+            get {
+              return resultMap["country"] as? String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "country")
+            }
+          }
+
+          public var height: Height? {
+            get {
+              return (resultMap["height"] as? ResultMap).flatMap { Height(unsafeResultMap: $0) }
+            }
+            set {
+              resultMap.updateValue(newValue?.resultMap, forKey: "height")
+            }
+          }
+
+          public var mass: Mass? {
+            get {
+              return (resultMap["mass"] as? ResultMap).flatMap { Mass(unsafeResultMap: $0) }
+            }
+            set {
+              resultMap.updateValue(newValue?.resultMap, forKey: "mass")
+            }
+          }
+
+          public var diameter: Diameter? {
+            get {
+              return (resultMap["diameter"] as? ResultMap).flatMap { Diameter(unsafeResultMap: $0) }
+            }
+            set {
+              resultMap.updateValue(newValue?.resultMap, forKey: "diameter")
+            }
+          }
+
+          public var successRatePct: Int? {
+            get {
+              return resultMap["success_rate_pct"] as? Int
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "success_rate_pct")
+            }
+          }
+
+          public var description: String? {
+            get {
+              return resultMap["description"] as? String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "description")
+            }
+          }
+
+          public struct Height: GraphQLSelectionSet {
+            public static let possibleTypes: [String] = ["Distance"]
+
+            public static var selections: [GraphQLSelection] {
+              return [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("meters", type: .scalar(Double.self)),
+              ]
+            }
+
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public init(meters: Double? = nil) {
+              self.init(unsafeResultMap: ["__typename": "Distance", "meters": meters])
+            }
+
+            public var __typename: String {
+              get {
+                return resultMap["__typename"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            public var meters: Double? {
+              get {
+                return resultMap["meters"] as? Double
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "meters")
+              }
+            }
+          }
+
+          public struct Mass: GraphQLSelectionSet {
+            public static let possibleTypes: [String] = ["Mass"]
+
+            public static var selections: [GraphQLSelection] {
+              return [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("kg", type: .scalar(Int.self)),
+              ]
+            }
+
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public init(kg: Int? = nil) {
+              self.init(unsafeResultMap: ["__typename": "Mass", "kg": kg])
+            }
+
+            public var __typename: String {
+              get {
+                return resultMap["__typename"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            public var kg: Int? {
+              get {
+                return resultMap["kg"] as? Int
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "kg")
+              }
+            }
+          }
+
+          public struct Diameter: GraphQLSelectionSet {
+            public static let possibleTypes: [String] = ["Distance"]
+
+            public static var selections: [GraphQLSelection] {
+              return [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("meters", type: .scalar(Double.self)),
+              ]
+            }
+
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public init(meters: Double? = nil) {
+              self.init(unsafeResultMap: ["__typename": "Distance", "meters": meters])
+            }
+
+            public var __typename: String {
+              get {
+                return resultMap["__typename"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            public var meters: Double? {
+              get {
+                return resultMap["meters"] as? Double
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "meters")
+              }
+            }
           }
         }
       }
@@ -597,6 +843,7 @@ public final class LaunchesQuery: GraphQLQuery {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("mission_patch_small", type: .scalar(String.self)),
+            GraphQLField("mission_patch", type: .scalar(String.self)),
           ]
         }
 
@@ -606,8 +853,8 @@ public final class LaunchesQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(missionPatchSmall: String? = nil) {
-          self.init(unsafeResultMap: ["__typename": "LaunchLinks", "mission_patch_small": missionPatchSmall])
+        public init(missionPatchSmall: String? = nil, missionPatch: String? = nil) {
+          self.init(unsafeResultMap: ["__typename": "LaunchLinks", "mission_patch_small": missionPatchSmall, "mission_patch": missionPatch])
         }
 
         public var __typename: String {
@@ -625,6 +872,15 @@ public final class LaunchesQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "mission_patch_small")
+          }
+        }
+
+        public var missionPatch: String? {
+          get {
+            return resultMap["mission_patch"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "mission_patch")
           }
         }
       }

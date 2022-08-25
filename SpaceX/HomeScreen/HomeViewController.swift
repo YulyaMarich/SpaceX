@@ -85,7 +85,6 @@ class HomeViewController: UIViewController {
                                    leading: scrollView.leadingAnchor,
                                    bottom: scrollView.bottomAnchor,
                                    trailing: scrollView.trailingAnchor)
-        scrollViewContainer.translatesAutoresizingMaskIntoConstraints = false
         scrollViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         
         companyDescriptionView.anchor(top: scrollViewContainer.topAnchor,

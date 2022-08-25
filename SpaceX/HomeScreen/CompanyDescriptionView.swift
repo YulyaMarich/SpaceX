@@ -46,7 +46,7 @@ class CompanyDescriptionView: UIView {
         let twitterButton = UIButton()
         twitterButton.titleLabel?.font = UIFont(name: "Inter-Regular", size: 12)
         twitterButton.setTitle("Twitter", for: .normal)
-        twitterButton.setTitleColor(.sxTwittterColor, for: .normal)
+        twitterButton.setTitleColor(.sxBlue, for: .normal)
         
         let image = UIImage(named: "twitter")
         let newImage = image!.resizedImage(Size: .init(width: 20, height: 20))
