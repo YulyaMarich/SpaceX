@@ -20,19 +20,33 @@ class HomeViewModel: HomeViewModelProtocol {
     init(spaceXService: SpaceXAPI = SpaceXService()) {
         self.spaceXService = spaceXService
     }
-  
+
     var spaceXService: SpaceXAPI = SpaceXService()
     
     var data: HomeInfoQuery.Data?
-   
+
+    let useMocks = true
+
     func fetch(completion: @escaping() -> Void) {
-        _ = spaceXService.executeHomeInfoQuery { result in
-            switch result {
-            case .success(let success):
-                self.data = success.data
+        if useMocks {
+            do {
+                data = try Mocker.loadHomeInfoMock()
+            } catch {
+                fatalError("viewModel fail")
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 completion()
-            case .failure(_):
-                break
+            }
+
+        } else {
+            _ = spaceXService.executeHomeInfoQuery { result in
+                switch result {
+                case .success(let success):
+                    self.data = success.data
+                    completion()
+                case .failure(_):
+                    break
+                }
             }
         }
     }

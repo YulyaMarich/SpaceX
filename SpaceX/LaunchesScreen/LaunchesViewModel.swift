@@ -23,15 +23,29 @@ class LaunchesViewModel: LaunchesViewModelProtocol {
     var spaceXService: SpaceXAPI = SpaceXService()
     
     var data: LaunchesQuery.Data?
+
+    let useMocks = true
     
     func fetch(completion: @escaping () -> Void) {
-        _ = spaceXService.executeLaunchesQuery { result in
-            switch result {
-            case .success(let success):
-                self.data = success.data
+        if useMocks {
+            do {
+                data = try Mocker.loadLauchesMock()
+            } catch {
+                fatalError("viewModel fail")
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 completion()
-            case .failure(_):
-                break
+            }
+
+        } else {
+            _ = spaceXService.executeLaunchesQuery { result in
+                switch result {
+                case .success(let success):
+                    self.data = success.data
+                    completion()
+                case .failure(_):
+                    break
+                }
             }
         }
     }
