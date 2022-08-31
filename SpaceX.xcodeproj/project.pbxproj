@@ -36,6 +36,7 @@
 		A37388F3287C858200C1E7A4 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37388F2287C858200C1E7A4 /* Extension+UIColor.swift */; };
 		A37E71D8287AD25500E2B6C8 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = A37E71D7287AD25500E2B6C8 /* Apollo */; };
 		A37E71DA287AD25500E2B6C8 /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = A37E71D9287AD25500E2B6C8 /* ApolloWebSocket */; };
+		A38CC4A028BF6FE50063ACA8 /* SX-Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A38CC49F28BF6FE50063ACA8 /* SX-Inter-Bold.ttf */; };
 		A3B9FFCA28B3945A00B6E0CA /* LaunchDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B9FFC928B3945A00B6E0CA /* LaunchDetailsViewController.swift */; };
 		A3B9FFCC28B3999600B6E0CA /* LaunchDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B9FFCB28B3999600B6E0CA /* LaunchDetailsViewModel.swift */; };
 		A3DDBFCC289A7DEE00329662 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDBFCB289A7DEE00329662 /* InfoView.swift */; };
@@ -46,7 +47,6 @@
 		A3E6998728A7ED75008D336E /* LaunchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6998628A7ED75008D336E /* LaunchCollectionViewCell.swift */; };
 		A3E699AB28A93CD1008D336E /* LaunchCollectionViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E699AA28A93CD0008D336E /* LaunchCollectionViewCellModel.swift */; };
 		A3E699AD28AA7A44008D336E /* LaunchAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E699AC28AA7A43008D336E /* LaunchAttributes.swift */; };
-		A3E699B128AACCD7008D336E /* SX-Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3E699B028AACCD7008D336E /* SX-Inter-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +78,7 @@
 		A37388F0287C1EE800C1E7A4 /* RocketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsViewController.swift; sourceTree = "<group>"; };
 		A37388F2287C858200C1E7A4 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		A37E71DE287AE7D700E2B6C8 /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		A38CC49F28BF6FE50063ACA8 /* SX-Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SX-Inter-Bold.ttf"; sourceTree = "<group>"; };
 		A3A2EA36287DA99000C62B81 /* HomeInfoQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = HomeInfoQuery.graphql; sourceTree = "<group>"; };
 		A3A2EA37287DA9A400C62B81 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A3B9FFC928B3945A00B6E0CA /* LaunchDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailsViewController.swift; sourceTree = "<group>"; };
@@ -90,7 +91,6 @@
 		A3E6998628A7ED75008D336E /* LaunchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCollectionViewCell.swift; sourceTree = "<group>"; };
 		A3E699AA28A93CD0008D336E /* LaunchCollectionViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCollectionViewCellModel.swift; sourceTree = "<group>"; };
 		A3E699AC28AA7A43008D336E /* LaunchAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAttributes.swift; sourceTree = "<group>"; };
-		A3E699B028AACCD7008D336E /* SX-Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SX-Inter-Bold.ttf"; path = "../../../../../../Downloads/SX-Inter-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,7 +197,7 @@
 			children = (
 				A372A3F828759F170010A894 /* Assets.xcassets */,
 				A30ACDA32886B18B0047734F /* SX-Inter-Regular.ttf */,
-				A3E699B028AACCD7008D336E /* SX-Inter-Bold.ttf */,
+				A38CC49F28BF6FE50063ACA8 /* SX-Inter-Bold.ttf */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -336,8 +336,8 @@
 				A30ACDA42886B18B0047734F /* SX-Inter-Regular.ttf in Resources */,
 				A372A3FC28759F170010A894 /* LaunchScreen.storyboard in Resources */,
 				A372A3F928759F170010A894 /* Assets.xcassets in Resources */,
-				A3E699B128AACCD7008D336E /* SX-Inter-Bold.ttf in Resources */,
 				A3E6998028A7BD2D008D336E /* LaunchesQuery.graphql in Resources */,
+				A38CC4A028BF6FE50063ACA8 /* SX-Inter-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
