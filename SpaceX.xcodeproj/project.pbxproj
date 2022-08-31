@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04C489C128BF71CD00B92F26 /* Mocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C489C028BF71CD00B92F26 /* Mocker.swift */; };
+		04C489C328BF721300B92F26 /* homeInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C489C228BF721300B92F26 /* homeInfo.json */; };
+		04C489C528BF721900B92F26 /* launches.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C489C428BF721900B92F26 /* launches.json */; };
 		A30ACDA228868F860047734F /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30ACDA128868F860047734F /* Extension + UIView.swift */; };
 		A30ACDA42886B18B0047734F /* SX-Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A30ACDA32886B18B0047734F /* SX-Inter-Regular.ttf */; };
 		A30ACDA62886F4B30047734F /* Extension + UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30ACDA52886F4B30047734F /* Extension + UIImage.swift */; };
@@ -50,6 +53,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04C489C028BF71CD00B92F26 /* Mocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mocker.swift; sourceTree = "<group>"; };
+		04C489C228BF721300B92F26 /* homeInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = homeInfo.json; path = SpaceX/Sources/Assets.xcassets/Mock/homeInfo.dataset/homeInfo.json; sourceTree = SOURCE_ROOT; };
+		04C489C428BF721900B92F26 /* launches.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = launches.json; path = SpaceX/Sources/Assets.xcassets/Mock/launches.dataset/launches.json; sourceTree = SOURCE_ROOT; };
 		A30ACDA128868F860047734F /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
 		A30ACDA32886B18B0047734F /* SX-Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SX-Inter-Regular.ttf"; sourceTree = "<group>"; };
 		A30ACDA52886F4B30047734F /* Extension + UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIImage.swift"; sourceTree = "<group>"; };
@@ -107,6 +113,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04C489BF28BF71BB00B92F26 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				04C489C028BF71CD00B92F26 /* Mocker.swift */,
+				04C489C228BF721300B92F26 /* homeInfo.json */,
+				04C489C428BF721900B92F26 /* launches.json */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		A30ACE13288FD3070047734F /* HistoryDetailsScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +234,7 @@
 			children = (
 				A37E71DE287AE7D700E2B6C8 /* schema.json */,
 				A3A2EA37287DA9A400C62B81 /* API.swift */,
+				04C489BF28BF71BB00B92F26 /* Mocks */,
 				A331EA7E2884552400740AF4 /* Managers */,
 				A331EA7D288454EE00740AF4 /* Requests */,
 			);
@@ -333,6 +350,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04C489C328BF721300B92F26 /* homeInfo.json in Resources */,
+				04C489C528BF721900B92F26 /* launches.json in Resources */,
 				A30ACDA42886B18B0047734F /* SX-Inter-Regular.ttf in Resources */,
 				A372A3FC28759F170010A894 /* LaunchScreen.storyboard in Resources */,
 				A372A3F928759F170010A894 /* Assets.xcassets in Resources */,
@@ -361,6 +380,7 @@
 				A30ACE18289025760047734F /* Extension + UIViewController.swift in Sources */,
 				A30ACDA228868F860047734F /* Extension + UIView.swift in Sources */,
 				A3E699AD28AA7A44008D336E /* LaunchAttributes.swift in Sources */,
+				04C489C128BF71CD00B92F26 /* Mocker.swift in Sources */,
 				A37388EB287C1EB400C1E7A4 /* NavigationController.swift in Sources */,
 				A331EA772884311400740AF4 /* Network.swift in Sources */,
 				A30ACDC828887F9D0047734F /* HistoryView.swift in Sources */,

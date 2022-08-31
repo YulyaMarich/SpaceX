@@ -16,7 +16,7 @@ query HomeInfo {
     }
     flight {
      ...APIflight
-}
+    }
   }
 }
 

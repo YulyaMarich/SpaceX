@@ -11,7 +11,7 @@ import Apollo
 class NetworkManager: ApolloAPI {
 
     private var network = Network.shared
-    
+
     func fetchQuery<Query>(query: Query,
                                      completion: ((Result<GraphQLResult<Query.Data>, Error>) -> Void)?) -> Cancellable? where Query: GraphQLQuery {
         let cancellable = network.apollo.fetch(query: query,
