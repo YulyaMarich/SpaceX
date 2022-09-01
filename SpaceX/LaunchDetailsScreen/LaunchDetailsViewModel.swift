@@ -16,6 +16,8 @@ protocol LaunchDetailsViewModelProtocol {
     var launchFailure: NSMutableAttributedString { get }
     var missionPatch: String { get }
     
+    var viewModelDidChange: ((LaunchDetailsViewModelProtocol) -> Void)? { get set }
+    
     var rocketName: String { get }
     var rocketCountry: String { get }
     var rocketHeight: String { get }
@@ -23,9 +25,35 @@ protocol LaunchDetailsViewModelProtocol {
     var rocketDiameter: String { get }
     var rocketSuccessRate: String { get }
     var rocketDescription: String { get }
+    
+    var isSaved: Bool { get }
+    func setSavedStatus()
+    func changeSavedStatus()
 }
 
 class LaunchDetailsViewModel: LaunchDetailsViewModelProtocol {
+
+    var isSaved: Bool {
+        didSet {
+            viewModelDidChange?(self)
+        }
+    }
+    
+    init(data: LaunchesQuery.Data.Launch?) {
+        self.data = data
+        isSaved = false
+    }
+    
+    func setSavedStatus() {
+        isSaved = DataManager.shared.loadSavedStatus(for: missionName)
+    }
+    
+    func changeSavedStatus() {
+        isSaved.toggle()
+        DataManager.shared.saveSavedStatus(for: missionName, with: isSaved)
+    }
+    
+    var viewModelDidChange: ((LaunchDetailsViewModelProtocol) -> Void)?
     
     var data: LaunchesQuery.Data.Launch?
     
@@ -83,9 +111,5 @@ class LaunchDetailsViewModel: LaunchDetailsViewModelProtocol {
     
     var rocketDescription: String {
         "\(data?.rocket?.rocket?.description ?? "No info")"
-    }
-    
-    init(data: LaunchesQuery.Data.Launch?) {
-        self.data = data
     }
 }

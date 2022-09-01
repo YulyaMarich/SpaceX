@@ -16,6 +16,5 @@ class NavigationController: UINavigationController {
     
     private func setUpNavigationController() {
         navigationBar.prefersLargeTitles = true
-        UINavigationBar.appearance().tintColor = .sxRed
     }
 }

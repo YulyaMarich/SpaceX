@@ -62,6 +62,10 @@ class HomeViewController: UIViewController {
     private func setUpVC() {
         navigationItem.title = "SpaceX"
         view.backgroundColor = .sxWhite
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.sxRed]
+        navigationController?.navigationBar.standardAppearance = navBarAppearance
+        navigationItem.largeTitleDisplayMode = .always
     }
     
     private func addSubviews() {

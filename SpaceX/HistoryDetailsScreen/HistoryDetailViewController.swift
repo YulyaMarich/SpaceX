@@ -73,11 +73,6 @@ class HistoryDetailViewController: UIViewController {
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
     init(data: HomeInfoQuery.Data.History?) {
         self.data = data
         self.flight = data?.flight?.fragments.apIflight
@@ -91,8 +86,9 @@ class HistoryDetailViewController: UIViewController {
     private func setUpVC() {
         view.backgroundColor = .sxWhite
         navigationItem.title = data?.title
-        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationItem.largeTitleDisplayMode = .never
         UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).adjustsFontSizeToFitWidth = true
+        navigationController?.navigationBar.tintColor = .sxRed
     }
     
     private func addSubviews() {

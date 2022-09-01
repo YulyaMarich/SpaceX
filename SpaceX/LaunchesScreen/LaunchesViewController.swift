@@ -10,7 +10,7 @@ import UIKit
 class LaunchesViewController: UIViewController {
     
     private let viewModel: LaunchesViewModelProtocol
-    
+
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -23,6 +23,7 @@ class LaunchesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
+        createSavedLaunchesButton()
         let loader = startAnimationLoaderView()
         viewModel.fetch { [weak self] in
             guard let strongSelf = self else { return }
@@ -45,16 +46,28 @@ class LaunchesViewController: UIViewController {
         navigationItem.title = "Launches"
     }
     
+    private func createSavedLaunchesButton() {
+    navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart.fill"),
+                                                                 style: .plain,
+                                                                 target: self,
+                                                                 action: #selector(openSavedLaunchesVC))
+        navigationItem.rightBarButtonItem?.tintColor = .sxRed
+    }
+    
+    @objc func openSavedLaunchesVC() {
+        let savedLaunchesScreen = SavedLaunchesViewController()
+        navigationController?.pushViewController(savedLaunchesScreen, animated: true)
+    }
+    
     private func setUpCollectionView() {
         collectionView.register(LaunchCollectionViewCell.self,
                                 forCellWithReuseIdentifier: LaunchCollectionViewCell.identifier)
         
         view.addSubview(collectionView)
-        collectionView.anchor(top: view.topAnchor,
-                              leading: view.leadingAnchor,
-                              bottom: view.bottomAnchor,
-                              trailing: view.trailingAnchor,
-                              spacing: .init(top: 20, left: 0, bottom: 20, right: 0))
+        collectionView.anchor(top: view.safeAreaLayoutGuide.topAnchor,
+                              leading: view.safeAreaLayoutGuide.leadingAnchor,
+                              bottom: view.safeAreaLayoutGuide.bottomAnchor,
+                              trailing: view.safeAreaLayoutGuide.trailingAnchor)
         collectionView.dataSource = self
         collectionView.delegate = self
     }
@@ -69,7 +82,8 @@ extension LaunchesViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LaunchCollectionViewCell.identifier,
                                                       for: indexPath) as! LaunchCollectionViewCell
-        cell.viewModel = LaunchCollectionViewCellModel(data: viewModel.data?.launches?[indexPath.item], indexPath: indexPath)
+        let launch = viewModel.data?.launches?[indexPath.item]
+        cell.viewModel = LaunchCollectionViewCellModel(data: launch, indexPath: indexPath)
         cell.configure()
         return cell
     }

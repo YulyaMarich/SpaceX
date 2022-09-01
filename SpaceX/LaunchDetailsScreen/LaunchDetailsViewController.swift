@@ -100,6 +100,8 @@ class LaunchDetailsViewController: UIViewController {
         return rocketImage
     }()
     
+    private var isSaved = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
@@ -119,20 +121,43 @@ class LaunchDetailsViewController: UIViewController {
                                                                 style: .plain,
                                                                 target: self,
                                                                 action: #selector(dismissView))
+        self.navigationItem.leftBarButtonItem?.tintColor = .sxBlack
+    }
+    
+    private func toggleSavedLaunch() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: setImage(),
+                                                                 style: .plain,
+                                                                 target: self,
+                                                                 action: #selector(toggleLaunch))
+        self.navigationItem.rightBarButtonItem?.tintColor = isSaved ? .sxRed : .sxBlack
     }
     
     @objc func dismissView() {
         dismiss(animated: true)
     }
     
+    @objc func toggleLaunch() {
+        viewModel.changeSavedStatus()
+        self.navigationItem.rightBarButtonItem?.tintColor = viewModel.isSaved ? .sxRed : .sxBlack
+        self.navigationItem.rightBarButtonItem?.image = setImage()
+    }
+    
     private func setUpView() {
         view.backgroundColor = .sxTabBarColor
         navigationController?.navigationBar.prefersLargeTitles = false
+        
+        viewModel.viewModelDidChange = { [unowned self] viewModel in
+            self.isSaved = viewModel.isSaved
+        }
+        
+        viewModel.setSavedStatus()
         addSubviews()
         setUpConstraints()
+        toggleSavedLaunch()
         addCancelButton()
         setUpStack()
         setUpValues()
+        
         missionPatch.isHidden = true
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
@@ -319,5 +344,10 @@ class LaunchDetailsViewController: UIViewController {
         stackView.distribution = .equalSpacing
         
         return stackView
+    }
+    
+    private func setImage() -> UIImage {
+        guard let image = viewModel.isSaved ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart") else { return UIImage() }
+        return image
     }
 }

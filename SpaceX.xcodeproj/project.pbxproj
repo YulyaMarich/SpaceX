@@ -40,6 +40,9 @@
 		A37E71D8287AD25500E2B6C8 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = A37E71D7287AD25500E2B6C8 /* Apollo */; };
 		A37E71DA287AD25500E2B6C8 /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = A37E71D9287AD25500E2B6C8 /* ApolloWebSocket */; };
 		A38CC4A028BF6FE50063ACA8 /* SX-Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A38CC49F28BF6FE50063ACA8 /* SX-Inter-Bold.ttf */; };
+		A38CC4A228BF77F70063ACA8 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38CC4A128BF77F70063ACA8 /* UserDefaultsManager.swift */; };
+		A38CC4A528BF78970063ACA8 /* SavedLaunchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38CC4A428BF78970063ACA8 /* SavedLaunchesViewController.swift */; };
+		A38CC4A728BFC4DC0063ACA8 /* Extension + UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38CC4A628BFC4DC0063ACA8 /* Extension + UserDefaults.swift */; };
 		A3B9FFCA28B3945A00B6E0CA /* LaunchDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B9FFC928B3945A00B6E0CA /* LaunchDetailsViewController.swift */; };
 		A3B9FFCC28B3999600B6E0CA /* LaunchDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B9FFCB28B3999600B6E0CA /* LaunchDetailsViewModel.swift */; };
 		A3DDBFCC289A7DEE00329662 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDBFCB289A7DEE00329662 /* InfoView.swift */; };
@@ -85,6 +88,9 @@
 		A37388F2287C858200C1E7A4 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		A37E71DE287AE7D700E2B6C8 /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		A38CC49F28BF6FE50063ACA8 /* SX-Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SX-Inter-Bold.ttf"; sourceTree = "<group>"; };
+		A38CC4A128BF77F70063ACA8 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		A38CC4A428BF78970063ACA8 /* SavedLaunchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedLaunchesViewController.swift; sourceTree = "<group>"; };
+		A38CC4A628BFC4DC0063ACA8 /* Extension + UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UserDefaults.swift"; sourceTree = "<group>"; };
 		A3A2EA36287DA99000C62B81 /* HomeInfoQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = HomeInfoQuery.graphql; sourceTree = "<group>"; };
 		A3A2EA37287DA9A400C62B81 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A3B9FFC928B3945A00B6E0CA /* LaunchDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailsViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +159,7 @@
 		A331EA7E2884552400740AF4 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				A38CC4A128BF77F70063ACA8 /* UserDefaultsManager.swift */,
 				A331EA762884311400740AF4 /* Network.swift */,
 				A331EA7228842E9900740AF4 /* NetworkManager.swift */,
 				A331EA7428842EAA00740AF4 /* SpaceXService.swift */,
@@ -199,6 +206,7 @@
 				A30ACE13288FD3070047734F /* HistoryDetailsScreen */,
 				A3E6998128A7C269008D336E /* LaunchesScreen */,
 				A3B9FFC828B3925100B6E0CA /* LaunchDetailsScreen */,
+				A38CC4A328BF78880063ACA8 /* SavedLaunchesScreen */,
 				A30ACE14288FDC230047734F /* ActivityIndicator */,
 				A37E71DD287AD8CC00E2B6C8 /* GraphQL */,
 				A372A4032875B0190010A894 /* Sources */,
@@ -241,6 +249,14 @@
 			path = GraphQL;
 			sourceTree = "<group>";
 		};
+		A38CC4A328BF78880063ACA8 /* SavedLaunchesScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A38CC4A428BF78970063ACA8 /* SavedLaunchesViewController.swift */,
+			);
+			path = SavedLaunchesScreen;
+			sourceTree = "<group>";
+		};
 		A3A2EA38287DC83D00C62B81 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +274,7 @@
 				A30ACDA128868F860047734F /* Extension + UIView.swift */,
 				A30ACDA52886F4B30047734F /* Extension + UIImage.swift */,
 				A30ACE17289025750047734F /* Extension + UIViewController.swift */,
+				A38CC4A628BFC4DC0063ACA8 /* Extension + UserDefaults.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -369,11 +386,13 @@
 			files = (
 				A331EA7528842EAA00740AF4 /* SpaceXService.swift in Sources */,
 				A37388F1287C1EE800C1E7A4 /* RocketsViewController.swift in Sources */,
+				A38CC4A228BF77F70063ACA8 /* UserDefaultsManager.swift in Sources */,
 				A3B9FFCA28B3945A00B6E0CA /* LaunchDetailsViewController.swift in Sources */,
 				A30ACDCA28892C0F0047734F /* CompanyDescriptionView.swift in Sources */,
 				A3B9FFCC28B3999600B6E0CA /* LaunchDetailsViewModel.swift in Sources */,
 				A37388E9287C1E9200C1E7A4 /* MainTabBarController.swift in Sources */,
 				A3DDBFCE289A8E2100329662 /* RocketView.swift in Sources */,
+				A38CC4A728BFC4DC0063ACA8 /* Extension + UserDefaults.swift in Sources */,
 				A30ACE10288AB6A80047734F /* BackroundCardView.swift in Sources */,
 				A30ACE12288C44400047734F /* HistoryDetailViewController.swift in Sources */,
 				A37388EF287C1EDE00C1E7A4 /* LaunchesViewController.swift in Sources */,
@@ -396,6 +415,7 @@
 				A37388F3287C858200C1E7A4 /* Extension+UIColor.swift in Sources */,
 				A331EA8428856D2600740AF4 /* HomeViewModel.swift in Sources */,
 				A30ACDA62886F4B30047734F /* Extension + UIImage.swift in Sources */,
+				A38CC4A528BF78970063ACA8 /* SavedLaunchesViewController.swift in Sources */,
 				A3DDBFCC289A7DEE00329662 /* InfoView.swift in Sources */,
 				A3DDBFF6289BF99200329662 /* HistoryCardView.swift in Sources */,
 				A331EA7C288454A700740AF4 /* ApolloAPI.swift in Sources */,
