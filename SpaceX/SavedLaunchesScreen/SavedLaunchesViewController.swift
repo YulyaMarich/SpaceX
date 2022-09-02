@@ -33,7 +33,7 @@ class SavedLaunchesViewController: UIViewController {
     
     private var dataManager = DataManager.shared
     
-  
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         dataManager.getSavedLaunches { savedItems in
@@ -51,17 +51,22 @@ class SavedLaunchesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Saved Launches"
-        view.backgroundColor = .sxWhite
-        view.addSubview(collectionView)
-   
-        refreshControll.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        setUpVIew()
+        
+        refreshControll.addTarget(self, action: #selector(refreshCollectionView), for: .valueChanged)
         collectionView.refreshControl = refreshControll
     }
     
-    @objc func refresh() {
+    @objc func refreshCollectionView() {
         collectionView.reloadData()
         refreshControll.endRefreshing()
+    }
+    
+    private func setUpVIew() {
+        navigationItem.title = "Saved Launches"
+        navigationController?.navigationBar.tintColor = .sxRed
+        view.backgroundColor = .sxWhite
+        view.addSubview(collectionView)
     }
     
     private func showInfoNotFound() {
@@ -78,7 +83,7 @@ class SavedLaunchesViewController: UIViewController {
     private func setUpCollectionView() {
         collectionView.register(LaunchCollectionViewCell.self,
                                 forCellWithReuseIdentifier: LaunchCollectionViewCell.identifier)
-     
+        
         collectionView.anchor(top: view.safeAreaLayoutGuide.topAnchor,
                               leading: view.safeAreaLayoutGuide.leadingAnchor,
                               bottom: view.safeAreaLayoutGuide.bottomAnchor,
