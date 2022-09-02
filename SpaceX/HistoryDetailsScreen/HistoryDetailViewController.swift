@@ -199,7 +199,7 @@ class HistoryDetailViewController: UIViewController {
     private func showInfoNotFound() {
         let infoNotFound = UILabel()
         view.addSubview(infoNotFound)
-        infoNotFound.text = "Sorry, info not found 😔"
+        infoNotFound.text = "Sorry, info not found😔"
         infoNotFound.font = UIFont(name: "Inter-Regular", size: 15)
         
         infoNotFound.translatesAutoresizingMaskIntoConstraints = false

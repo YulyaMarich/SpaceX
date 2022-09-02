@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Apollo
+import UIKit
 
 protocol LaunchDetailsViewModelProtocol {
     var data: LaunchesQuery.Data.Launch? { get }
@@ -27,12 +29,13 @@ protocol LaunchDetailsViewModelProtocol {
     var rocketDescription: String { get }
     
     var isSaved: Bool { get }
-    func setSavedStatus()
-    func changeSavedStatus()
+
+    func checkSavedStatus()
+    func toggleSave()
 }
 
 class LaunchDetailsViewModel: LaunchDetailsViewModelProtocol {
-
+    
     var isSaved: Bool {
         didSet {
             viewModelDidChange?(self)
@@ -43,16 +46,7 @@ class LaunchDetailsViewModel: LaunchDetailsViewModelProtocol {
         self.data = data
         isSaved = false
     }
-    
-    func setSavedStatus() {
-        isSaved = DataManager.shared.loadSavedStatus(for: missionName)
-    }
-    
-    func changeSavedStatus() {
-        isSaved.toggle()
-        DataManager.shared.saveSavedStatus(for: missionName, with: isSaved)
-    }
-    
+
     var viewModelDidChange: ((LaunchDetailsViewModelProtocol) -> Void)?
     
     var data: LaunchesQuery.Data.Launch?
@@ -111,5 +105,25 @@ class LaunchDetailsViewModel: LaunchDetailsViewModelProtocol {
     
     var rocketDescription: String {
         "\(data?.rocket?.rocket?.description ?? "No info")"
+    }
+    
+    private var dataManager = DataManager.shared
+    
+    func checkSavedStatus() {
+        dataManager.checkSavedStatus(data: data) { result in
+            isSaved = result
+        }
+    }
+    
+   func toggleSave() {
+        if !isSaved {
+            dataManager.saveLaunch(data: data) { result in
+                isSaved = result
+            }
+        } else {
+            dataManager.unsaveLaunch(data: data) { result in
+                isSaved = result
+            }
+        }
     }
 }

@@ -128,7 +128,7 @@ class LaunchDetailsViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: setImage(),
                                                                  style: .plain,
                                                                  target: self,
-                                                                 action: #selector(toggleLaunch))
+                                                                 action: #selector(toggleSave))
         self.navigationItem.rightBarButtonItem?.tintColor = isSaved ? .sxRed : .sxBlack
     }
     
@@ -136,21 +136,20 @@ class LaunchDetailsViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    @objc func toggleLaunch() {
-        viewModel.changeSavedStatus()
+    @objc func toggleSave() {
+        viewModel.toggleSave()
         self.navigationItem.rightBarButtonItem?.tintColor = viewModel.isSaved ? .sxRed : .sxBlack
         self.navigationItem.rightBarButtonItem?.image = setImage()
     }
     
     private func setUpView() {
         view.backgroundColor = .sxTabBarColor
-        navigationController?.navigationBar.prefersLargeTitles = false
         
         viewModel.viewModelDidChange = { [unowned self] viewModel in
             self.isSaved = viewModel.isSaved
         }
         
-        viewModel.setSavedStatus()
+        viewModel.checkSavedStatus()
         addSubviews()
         setUpConstraints()
         toggleSavedLaunch()
