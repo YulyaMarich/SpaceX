@@ -10,7 +10,7 @@ import UIKit
 class LaunchesViewController: UIViewController {
     
     private let viewModel: LaunchesViewModelProtocol
-
+    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -47,10 +47,10 @@ class LaunchesViewController: UIViewController {
     }
     
     private func createSavedLaunchesButton() {
-    navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart.fill"),
-                                                                 style: .plain,
-                                                                 target: self,
-                                                                 action: #selector(openSavedLaunchesVC))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart.fill"),
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(openSavedLaunchesVC))
         navigationItem.rightBarButtonItem?.tintColor = .sxRed
     }
     

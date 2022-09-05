@@ -41,7 +41,7 @@ class HistoryCardView: UIView {
                                    bottom: historyView.bottomAnchor,
                                    trailing: historyView.trailingAnchor,
                                    spacing: .init(top: 20, left: 20, bottom: 20, right: 0))
-
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(moveToHistoryDetailsVC))
         addGestureRecognizer(tap)
     }

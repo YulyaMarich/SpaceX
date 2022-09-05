@@ -100,8 +100,6 @@ class LaunchDetailsViewController: UIViewController {
         return rocketImage
     }()
     
-    private var isSaved = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
@@ -129,7 +127,7 @@ class LaunchDetailsViewController: UIViewController {
                                                                  style: .plain,
                                                                  target: self,
                                                                  action: #selector(toggleSave))
-        self.navigationItem.rightBarButtonItem?.tintColor = isSaved ? .sxRed : .sxBlack
+        self.navigationItem.rightBarButtonItem?.tintColor = viewModel.isSaved ? .sxRed : .sxBlack
     }
     
     @objc func dismissView() {
@@ -144,10 +142,6 @@ class LaunchDetailsViewController: UIViewController {
     
     private func setUpView() {
         view.backgroundColor = .sxTabBarColor
-        
-        viewModel.viewModelDidChange = { [unowned self] viewModel in
-            self.isSaved = viewModel.isSaved
-        }
         
         viewModel.checkSavedStatus()
         addSubviews()

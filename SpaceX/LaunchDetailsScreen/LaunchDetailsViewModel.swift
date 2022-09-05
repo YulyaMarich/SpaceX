@@ -18,8 +18,6 @@ protocol LaunchDetailsViewModelProtocol {
     var launchFailure: NSMutableAttributedString { get }
     var missionPatch: String { get }
     
-    var viewModelDidChange: ((LaunchDetailsViewModelProtocol) -> Void)? { get set }
-    
     var rocketName: String { get }
     var rocketCountry: String { get }
     var rocketHeight: String { get }
@@ -29,25 +27,19 @@ protocol LaunchDetailsViewModelProtocol {
     var rocketDescription: String { get }
     
     var isSaved: Bool { get }
-
+    
     func checkSavedStatus()
     func toggleSave()
 }
 
 class LaunchDetailsViewModel: LaunchDetailsViewModelProtocol {
     
-    var isSaved: Bool {
-        didSet {
-            viewModelDidChange?(self)
-        }
-    }
+    var isSaved: Bool
     
     init(data: LaunchesQuery.Data.Launch?) {
         self.data = data
         isSaved = false
     }
-
-    var viewModelDidChange: ((LaunchDetailsViewModelProtocol) -> Void)?
     
     var data: LaunchesQuery.Data.Launch?
     
@@ -115,7 +107,7 @@ class LaunchDetailsViewModel: LaunchDetailsViewModelProtocol {
         }
     }
     
-   func toggleSave() {
+    func toggleSave() {
         if !isSaved {
             dataManager.saveLaunch(data: data) { result in
                 isSaved = result

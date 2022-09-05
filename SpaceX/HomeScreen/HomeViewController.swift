@@ -110,7 +110,7 @@ class HomeViewController: UIViewController {
                          spacing: .init(top: 0, left: 20, bottom: 20, right: 20))
     }
     
-   private func setUpCompanyDescriptionView() {
+    private func setUpCompanyDescriptionView() {
         guard let company = viewModel.data?.company else { return }
         
         let companyDescriptionViewElements = CompanyDescriptionView(companyActivityText: company.summary,
@@ -135,7 +135,6 @@ class HomeViewController: UIViewController {
             let historyCard = HistoryCardView(history: history)
             historyCard.presenter = navigationController
             stackView.addArrangedSubview(historyCard)
-            
         }
     }
 }

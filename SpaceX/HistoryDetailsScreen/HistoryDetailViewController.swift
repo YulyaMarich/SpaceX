@@ -176,7 +176,7 @@ class HistoryDetailViewController: UIViewController {
     private func setUpVideoView() {
         videoView.layer.masksToBounds = true
         videoView.layer.cornerRadius = 10
-       
+        
         guard let url = URL(string: data?.flight?.fragments.apIflight.links?.videoLink ?? "") else { return }
         do {
             try self.videoView.loadVideo(withUrl: url, playerVars: .init(playsInline: .true))

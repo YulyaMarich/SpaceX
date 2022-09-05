@@ -128,5 +128,4 @@ class CompanyDescriptionView: UIView {
         guard let twitterLink = twitterLink, let SXTwitter = URL(string: twitterLink) else { return }
         UIApplication.shared.open(SXTwitter)
     }
-    
 }
