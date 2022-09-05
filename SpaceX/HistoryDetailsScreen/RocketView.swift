@@ -97,7 +97,7 @@ class RocketView: UIView {
         rocketText.append(rocketString)
         rocketText.append(rocketNameString)
         rocketName.attributedText = rocketText
-
+        
         rocketName.anchor(top: rocketNameView.topAnchor,
                           leading: rocketNameView.leadingAnchor,
                           bottom: rocketNameView.bottomAnchor,

@@ -1,15 +1,16 @@
 //
-//  LaunchesViewController.swift
+//  SavedLaunchesViewController.swift
 //  SpaceX
 //
-//  Created by Julia on 11.07.2022.
+//  Created by Julia on 29.08.2022.
 //
 
 import UIKit
+import Apollo
 
-class LaunchesViewController: UIViewController {
+class SavedLaunchesViewController: UIViewController {
     
-    private let viewModel: LaunchesViewModelProtocol
+    @Published private(set) var savedItems: [LaunchesQuery.Data.Launch] = []
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -20,50 +21,69 @@ class LaunchesViewController: UIViewController {
         return collectionView
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setUpView()
-        createSavedLaunchesButton()
-        let loader = startAnimationLoaderView()
-        viewModel.fetch { [weak self] in
-            guard let strongSelf = self else { return }
-            loader.removeFromSuperview()
-            strongSelf.setUpCollectionView()
+    private lazy var infoNotFound: UILabel = {
+        let infoNotFound = UILabel()
+        return infoNotFound
+    }()
+    
+    private lazy var refreshControll: UIRefreshControl = {
+        let refreshControll = UIRefreshControl()
+        return refreshControll
+    }()
+    
+    private var dataManager = DataManager.shared
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        dataManager.getSavedLaunches { savedItems in
+            self.savedItems = savedItems
+        }
+        
+        if !savedItems.isEmpty {
+            setUpCollectionView()
+            collectionView.reloadData()
+        } else {
+            collectionView.removeFromSuperview()
+            showInfoNotFound()
         }
     }
     
-    init(viewModel: LaunchesViewModelProtocol = LaunchesViewModel()) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setUpVIew()
+        
+        refreshControll.addTarget(self, action: #selector(refreshCollectionView), for: .valueChanged)
+        collectionView.refreshControl = refreshControll
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    @objc func refreshCollectionView() {
+        collectionView.reloadData()
+        refreshControll.endRefreshing()
     }
     
-    private func setUpView() {
+    private func setUpVIew() {
+        navigationItem.title = "Saved Launches"
+        navigationController?.navigationBar.tintColor = .sxRed
         view.backgroundColor = .sxWhite
-        navigationItem.title = "Launches"
+        view.addSubview(collectionView)
     }
     
-    private func createSavedLaunchesButton() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart.fill"),
-                                                            style: .plain,
-                                                            target: self,
-                                                            action: #selector(openSavedLaunchesVC))
-        navigationItem.rightBarButtonItem?.tintColor = .sxRed
-    }
-    
-    @objc func openSavedLaunchesVC() {
-        let savedLaunchesScreen = SavedLaunchesViewController()
-        navigationController?.pushViewController(savedLaunchesScreen, animated: true)
+    private func showInfoNotFound() {
+        let infoNotFound = UILabel()
+        view.addSubview(infoNotFound)
+        infoNotFound.text = "No saved launches😔"
+        infoNotFound.font = UIFont(name: "Inter-Regular", size: 15)
+        
+        infoNotFound.translatesAutoresizingMaskIntoConstraints = false
+        infoNotFound.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        infoNotFound.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
     }
     
     private func setUpCollectionView() {
         collectionView.register(LaunchCollectionViewCell.self,
                                 forCellWithReuseIdentifier: LaunchCollectionViewCell.identifier)
         
-        view.addSubview(collectionView)
         collectionView.anchor(top: view.safeAreaLayoutGuide.topAnchor,
                               leading: view.safeAreaLayoutGuide.leadingAnchor,
                               bottom: view.safeAreaLayoutGuide.bottomAnchor,
@@ -73,17 +93,16 @@ class LaunchesViewController: UIViewController {
     }
 }
 
-extension LaunchesViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension SavedLaunchesViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.data?.launches?.count ?? 0
+        return savedItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LaunchCollectionViewCell.identifier,
                                                       for: indexPath) as! LaunchCollectionViewCell
-        let launch = viewModel.data?.launches?[indexPath.item]
-        cell.viewModel = LaunchCollectionViewCellModel(data: launch, indexPath: indexPath)
+        cell.viewModel = LaunchCollectionViewCellModel(data: savedItems[indexPath.item], indexPath: indexPath)
         cell.configure()
         return cell
     }
@@ -97,11 +116,10 @@ extension LaunchesViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let viewModel = LaunchDetailsViewModel(data: viewModel.data?.launches?[indexPath.item])
+        let viewModel = LaunchDetailsViewModel(data: savedItems[indexPath.item])
         let launchDetailsVC = LaunchDetailsViewController(viewModel: viewModel)
         let navigationVC = UINavigationController(rootViewController: launchDetailsVC)
         navigationVC.modalPresentationStyle = .fullScreen
         self.present(navigationVC, animated: true)
     }
 }
-

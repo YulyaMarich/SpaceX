@@ -73,11 +73,6 @@ class HistoryDetailViewController: UIViewController {
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
     init(data: HomeInfoQuery.Data.History?) {
         self.data = data
         self.flight = data?.flight?.fragments.apIflight
@@ -91,8 +86,9 @@ class HistoryDetailViewController: UIViewController {
     private func setUpVC() {
         view.backgroundColor = .sxWhite
         navigationItem.title = data?.title
-        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationItem.largeTitleDisplayMode = .never
         UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).adjustsFontSizeToFitWidth = true
+        navigationController?.navigationBar.tintColor = .sxRed
     }
     
     private func addSubviews() {
@@ -180,7 +176,7 @@ class HistoryDetailViewController: UIViewController {
     private func setUpVideoView() {
         videoView.layer.masksToBounds = true
         videoView.layer.cornerRadius = 10
-       
+        
         guard let url = URL(string: data?.flight?.fragments.apIflight.links?.videoLink ?? "") else { return }
         do {
             try self.videoView.loadVideo(withUrl: url, playerVars: .init(playsInline: .true))
@@ -203,7 +199,7 @@ class HistoryDetailViewController: UIViewController {
     private func showInfoNotFound() {
         let infoNotFound = UILabel()
         view.addSubview(infoNotFound)
-        infoNotFound.text = "Sorry, info not found 😔"
+        infoNotFound.text = "Sorry, info not found😔"
         infoNotFound.font = UIFont(name: "Inter-Regular", size: 15)
         
         infoNotFound.translatesAutoresizingMaskIntoConstraints = false

@@ -15,7 +15,7 @@ class BackroundCardView: UIView {
         return line
     }()
     
-   private var redLineIsHidden: Bool
+    private var redLineIsHidden: Bool
     
     init(redLineIsHidden: Bool = false) {
         self.redLineIsHidden = redLineIsHidden

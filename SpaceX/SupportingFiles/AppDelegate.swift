@@ -11,10 +11,6 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let appearance = UINavigationBarAppearance()
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.sxRed]
-        UINavigationBar.appearance().standardAppearance = appearance
-        
         return true
     }
     
