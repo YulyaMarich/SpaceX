@@ -33,7 +33,6 @@ class SavedLaunchesViewController: UIViewController {
     
     private var dataManager = DataManager.shared
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         dataManager.getSavedLaunches { savedItems in

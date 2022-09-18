@@ -19,12 +19,12 @@
       }
     },
     {
-      "identity" : "youtubeplayer",
+      "identity" : "youtubeplayerkit",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/NicholasMata/YoutubePlayer",
+      "location" : "https://github.com/SvenTiigi/YouTubePlayerKit.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "7e22c09b4b6d9e9ba905c5e8757ecad400cf870a"
+        "revision" : "48b3716ce316bb67c19b10c4335f356b195dd72e",
+        "version" : "1.2.1"
       }
     }
   ],

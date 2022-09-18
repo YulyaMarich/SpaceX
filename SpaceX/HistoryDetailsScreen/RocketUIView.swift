@@ -1,5 +1,5 @@
 //
-//  RocketView.swift
+//  Rocket1View.swift
 //  SpaceX
 //
 //  Created by Julia on 03.08.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RocketView: UIView {
+class RocketUIView: UIView {
     
     private lazy var rocketNameView: BackroundCardView = {
         let rocketName = BackroundCardView(redLineIsHidden: true)

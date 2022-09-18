@@ -12,4 +12,6 @@ protocol SpaceXAPI {
     func executeHomeInfoQuery(completion: ((Result<GraphQLResult<HomeInfoQuery.Data>, Error>) -> Void)?) -> Cancellable?
     
     func executeLaunchesQuery(completion: ((Result<GraphQLResult<LaunchesQuery.Data>, Error>) -> Void)?) -> Cancellable?
+    
+    func executeRocketsQuery(completion: ((Result<GraphQLResult<RocketsQuery.Data>, Error>) -> Void)?) -> Cancellable?
 }

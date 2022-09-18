@@ -9,7 +9,7 @@ import Foundation
 import Apollo
 
 class SpaceXService: SpaceXAPI {
-    
+ 
     private var networkManager: ApolloAPI
     
     init(networkManager: ApolloAPI = NetworkManager()) {
@@ -28,4 +28,9 @@ class SpaceXService: SpaceXAPI {
         return cancallable
     }
     
+    func executeRocketsQuery(completion: ((Result<GraphQLResult<RocketsQuery.Data>, Error>) -> Void)?) -> Cancellable? {
+        let rocketsQuery = RocketsQuery()
+        let cancallable = networkManager.fetchQuery(query: rocketsQuery, completion: completion)
+        return cancallable
+    }
 }

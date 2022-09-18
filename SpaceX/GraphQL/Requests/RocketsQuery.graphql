@@ -1,0 +1,18 @@
+query Rockets {
+  rockets {
+    name
+    description
+    cost_per_launch
+    success_rate_pct
+    mass {
+      kg
+    }
+    height {
+      meters
+    }
+    diameter {
+      meters
+    }
+    active
+  }
+}

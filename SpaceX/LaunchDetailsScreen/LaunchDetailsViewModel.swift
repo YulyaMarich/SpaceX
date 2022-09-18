@@ -7,7 +7,6 @@
 
 import Foundation
 import Apollo
-import UIKit
 
 protocol LaunchDetailsViewModelProtocol {
     var data: LaunchesQuery.Data.Launch? { get }

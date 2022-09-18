@@ -9,10 +9,11 @@ import UIKit
 
 class HistoryCardView: UIView {
     
-    private let history: HomeInfoQuery.Data.History?
+    private let history: HomeInfoQuery.Data.History
+    
     weak var presenter: UINavigationController?
     
-    init(history: HomeInfoQuery.Data.History?) {
+    init(history: HomeInfoQuery.Data.History) {
         self.history = history
         super.init(frame: .zero)
         setUpView()
@@ -24,9 +25,9 @@ class HistoryCardView: UIView {
     
     private func setUpView() {
         let historyView = BackroundCardView()
-        let historyViewElements = HistoryView(titleText: history?.title,
-                                              articleText: history?.details,
-                                              link: history?.links?.article)
+        let historyViewElements = HistoryView(titleText: history.title,
+                                              articleText: history.details,
+                                              link: history.links?.article)
         
         addSubview(historyView)
         historyView.anchor(top: topAnchor,
@@ -47,7 +48,8 @@ class HistoryCardView: UIView {
     }
     
     @objc func moveToHistoryDetailsVC() {
-        let historyDetailsVC = HistoryDetailViewController(data: history)
+        let viewModel = HistoryDetailsViewModel(data: history)
+        let historyDetailsVC = HistoryDetailViewController(viewModel: viewModel)
         presenter?.pushViewController(historyDetailsVC, animated: true)
     }
 }

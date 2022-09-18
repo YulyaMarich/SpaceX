@@ -12,7 +12,7 @@ class CompanyDescriptionView: UIView {
     private lazy var companyActivityLabel: UILabel = {
         let companyActivityLabel = UILabel()
         companyActivityLabel.numberOfLines = 0
-        companyActivityLabel.text = companyActivityText
+        companyActivityLabel.text = company.summary
         companyActivityLabel.font = UIFont(name: "Inter-Regular", size: 12)
         companyActivityLabel.lineBreakMode = .byWordWrapping
         return companyActivityLabel
@@ -21,7 +21,7 @@ class CompanyDescriptionView: UIView {
     private lazy var founderLabel: UILabel = {
         let founderLabel = UILabel()
         founderLabel.numberOfLines = 0
-        founderLabel.text = "Founder: \(founderText ?? "No info")"
+        founderLabel.text = "Founder: \(company.founder ?? "No info")"
         founderLabel.font = UIFont(name: "Inter-Regular", size: 12)
         return founderLabel
     }()
@@ -29,7 +29,7 @@ class CompanyDescriptionView: UIView {
     private lazy var yearLabel: UILabel = {
         let yearLabel = UILabel()
         yearLabel.numberOfLines = 0
-        yearLabel.text = "Year: \(yearText ?? 0)"
+        yearLabel.text = "Year: \(company.founded ?? 0)"
         yearLabel.font = UIFont(name: "Inter-Regular", size: 12)
         return yearLabel
     }()
@@ -37,7 +37,7 @@ class CompanyDescriptionView: UIView {
     private lazy var valuationLabel: UILabel = {
         let valuationLabel = UILabel()
         valuationLabel.numberOfLines = 0
-        valuationLabel.text = "Valuation: \(valuationText ?? 0)$"
+        valuationLabel.text = "Valuation: \(company.valuation ?? 0)$"
         valuationLabel.font = UIFont(name: "Inter-Regular", size: 12)
         return valuationLabel
     }()
@@ -54,18 +54,10 @@ class CompanyDescriptionView: UIView {
         return twitterButton
     }()
     
-    private var companyActivityText: String?
-    private var founderText: String?
-    private var yearText: Int?
-    private var valuationText: Double?
-    private var twitterLink: String?
+    private var company: HomeInfoQuery.Data.Company
     
-    init(companyActivityText: String?, founderText: String?, yearText: Int?, valuationText: Double?, twitterLink: String?) {
-        self.companyActivityText = companyActivityText
-        self.founderText = founderText
-        self.yearText = yearText
-        self.valuationText = valuationText
-        self.twitterLink = twitterLink
+    init(company: HomeInfoQuery.Data.Company) {
+        self.company = company
         super.init(frame: .zero)
         setUpView()
     }
@@ -125,7 +117,7 @@ class CompanyDescriptionView: UIView {
     }
     
     @objc func twitterTapped() {
-        guard let twitterLink = twitterLink, let SXTwitter = URL(string: twitterLink) else { return }
+        guard let twitterLink = company.links?.twitter, let SXTwitter = URL(string: twitterLink) else { return }
         UIApplication.shared.open(SXTwitter)
     }
 }
