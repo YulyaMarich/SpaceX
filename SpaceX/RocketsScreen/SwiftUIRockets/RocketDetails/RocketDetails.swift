@@ -34,12 +34,9 @@ struct RocketDetails: View {
                             .matchedGeometryEffect(id: "background \(viewModel.name)", in: nameSpace))
                         .padding(.leading, 20)
                         VStack(alignment: .leading) {
-                            RocketInfoStack(variable: "Cost per launch", result: viewModel.costPerLaunch)
-                            RocketInfoStack(variable: "Success rate", result: viewModel.successRate)
-                            RocketInfoStack(variable: "Mass", result: viewModel.mass)
-                            RocketInfoStack(variable: "Height", result: viewModel.height)
-                            RocketInfoStack(variable: "Diameter", result: viewModel.diameter)
-                            RocketInfoStack(variable: "Active", result: viewModel.active)
+                            ForEach(0..<viewModel.variables.count, id: \.self) { index in
+                                RocketInfoStack(variable: viewModel.variables[index], result: viewModel.results[index])
+                            }
                         }
                         Spacer()
                     }
@@ -72,4 +69,3 @@ struct RocketDetails: View {
         }
     }
 }
-

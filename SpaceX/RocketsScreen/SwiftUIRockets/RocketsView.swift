@@ -12,7 +12,7 @@ struct RocketsView: View {
     @State var showRocketDetails = false
     @State var showProjectDetails = false
     @State var selected: RocketsQuery.Data.Rocket?
-    var rockets = [RocketsQuery.Data.Rocket?]()
+    private var rockets = [RocketsQuery.Data.Rocket?]()
     
     init(passedRockets: [RocketsQuery.Data.Rocket?]) {
         self.rockets = passedRockets
@@ -89,4 +89,3 @@ struct RocketsView: View {
         .frame(height: 88)
     }
 }
-

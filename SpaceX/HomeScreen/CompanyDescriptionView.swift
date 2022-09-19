@@ -54,7 +54,7 @@ class CompanyDescriptionView: UIView {
         return twitterButton
     }()
     
-    private var company: HomeInfoQuery.Data.Company
+    private let company: HomeInfoQuery.Data.Company
     
     init(company: HomeInfoQuery.Data.Company) {
         self.company = company

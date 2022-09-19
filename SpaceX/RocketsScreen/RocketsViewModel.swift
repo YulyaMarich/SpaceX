@@ -15,14 +15,13 @@ protocol RocketsViewModelProtocol {
 }
 
 class RocketsViewModel: RocketsViewModelProtocol, ObservableObject {
-    
     init(spaceXService: SpaceXAPI = SpaceXService()) {
         self.spaceXService = spaceXService
     }
     
     var spaceXService: SpaceXAPI
     
-    @Published var data: RocketsQuery.Data?
+    var data: RocketsQuery.Data?
     
     func fetch(completion: @escaping() -> Void) {
         _ = spaceXService.executeRocketsQuery { result in

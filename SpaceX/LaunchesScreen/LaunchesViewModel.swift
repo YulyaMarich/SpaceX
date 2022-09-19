@@ -15,7 +15,6 @@ protocol LaunchesViewModelProtocol {
 }
 
 class LaunchesViewModel: LaunchesViewModelProtocol {
-    
     init(spaceXService: SpaceXAPI = SpaceXService()) {
         self.spaceXService = spaceXService
     }

@@ -33,5 +33,3 @@ struct RocketView: View {
         }
     }
 }
-
-

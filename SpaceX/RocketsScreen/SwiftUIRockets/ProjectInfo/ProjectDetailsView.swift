@@ -10,6 +10,7 @@ import SwiftUI
 struct ProjectDetailsView: View {
     var nameSpace: Namespace.ID
     @Binding var showProjectDetails: Bool
+    private let links = ["https://github.com/YulyaMarich/XSpace.git", "https://api.spacex.land/graphql/"]
     
     var body: some View {
         ZStack {
@@ -36,17 +37,17 @@ struct ProjectDetailsView: View {
                 .padding()
                 VStack(spacing: 15) {
                     VStack {
-                        Link(destination: URL(string: "https://github.com/YulyaMarich/XSpace.git")!) {
-                            Text("https://github.com/YulyaMarich/XSpace.git")
-                                .underline()
-                        }
-                        Link(destination: URL(string: "https://api.spacex.land/graphql/")!) {
-                            Text("https://api.spacex.land/graphql/")
-                                .underline()
+                        ForEach(0..<links.count, id: \.self) { index in
+                            if let url = URL(string: links[index]) {
+                                Link(destination: url) {
+                                    Text(links[index])
+                                        .underline()
+                                        .accentColor(Color(UIColor.sxBlack))
+                                        .font(.footnote)
+                                }
+                            }
                         }
                     }
-                    .accentColor(Color(UIColor.sxBlack))
-                    .font(.footnote)
                     Text("Created by Yulia Marych")
                         .font(.footnote.weight(.semibold))
                         .padding(.bottom)

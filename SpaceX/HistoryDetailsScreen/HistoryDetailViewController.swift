@@ -10,7 +10,7 @@ import YouTubePlayerKit
 
 class HistoryDetailViewController: UIViewController {
     
-    private var viewModel: HistoryDetailsViewModelProtocol
+    private let viewModel: HistoryDetailsViewModelProtocol
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()

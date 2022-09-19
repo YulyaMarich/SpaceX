@@ -8,7 +8,6 @@
 import Foundation
 protocol RocketViewModelProtocol {
     var data: RocketsQuery.Data.Rocket? { get }
-    
     var name: String { get }
 }
 
@@ -22,6 +21,4 @@ class RocketViewModel: RocketViewModelProtocol, ObservableObject {
     var name: String {
         data?.name ?? "No info"
     }
-    
-    
 }

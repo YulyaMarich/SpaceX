@@ -20,7 +20,6 @@ protocol LaunchCollectionViewCellModelProtocol {
 }
 
 class LaunchCollectionViewCellModel: LaunchCollectionViewCellModelProtocol {
-    
     var indexPath: IndexPath
     
     var data: LaunchesQuery.Data.Launch?

@@ -10,7 +10,7 @@ import SwiftUI
 
 class RocketsViewController: UIViewController {
     
-    private var viewModel: RocketsViewModelProtocol
+    private let viewModel: RocketsViewModelProtocol
     
     override func viewDidLoad() {
         super.viewDidLoad()

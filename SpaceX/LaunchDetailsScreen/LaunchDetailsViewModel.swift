@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Apollo
 
 protocol LaunchDetailsViewModelProtocol {
     var data: LaunchesQuery.Data.Launch? { get }
@@ -32,7 +31,6 @@ protocol LaunchDetailsViewModelProtocol {
 }
 
 class LaunchDetailsViewModel: LaunchDetailsViewModelProtocol {
-    
     var isSaved: Bool
     
     init(data: LaunchesQuery.Data.Launch?) {

@@ -104,4 +104,3 @@ extension LaunchesViewController: UICollectionViewDataSource, UICollectionViewDe
         self.present(navigationVC, animated: true)
     }
 }
-

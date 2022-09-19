@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ProjectDetailsStack: View {
     var nameSpace: Namespace.ID
-    var variables = ["Version control system:", "Managing the distribution of code:", "Managing concurrent operations:", "Saving and storing data:", "Patterns:", "Networking:", "Frameworks:", "Animation:", "Other:"]
-    var results = ["Git", "Swift Package Manager", "Grand Central Dispatch", "UserDefaults", "MVVM, MVC", "Apollo, GraphQL", "UIKit, SwiftUI, YoutubePlayer", "Matched Geometry Effect", " Auto Layout, POP"]
+    private let variables = ["Version control system:", "Managing the distribution of code:", "Managing concurrent operations:", "Saving and storing data:", "Patterns:", "Networking:", "Frameworks:", "Animation:", "Other:"]
+    private let results = ["Git", "Swift Package Manager", "Grand Central Dispatch", "UserDefaults", "MVVM, MVC", "Apollo, GraphQL", "UIKit, SwiftUI, YoutubePlayer", "Matched Geometry Effect", " Auto Layout, POP"]
     
     var body: some View {
         VStack(spacing: 15) {
@@ -34,5 +34,3 @@ struct ProjectDetailsStack: View {
         }
     }
 }
-
-
