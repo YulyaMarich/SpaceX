@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Apollo
 
 class SavedLaunchesViewController: UIViewController {
     
@@ -32,7 +31,6 @@ class SavedLaunchesViewController: UIViewController {
     }()
     
     private var dataManager = DataManager.shared
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)

@@ -16,6 +16,8 @@
 		A30ACE12288C44400047734F /* HistoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30ACE11288C44400047734F /* HistoryDetailViewController.swift */; };
 		A30ACE16288FDC460047734F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30ACE15288FDC460047734F /* ActivityIndicator.swift */; };
 		A30ACE18289025760047734F /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30ACE17289025750047734F /* Extension + UIViewController.swift */; };
+		A310A37628CF826200A0B03B /* RocketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A310A37528CF826200A0B03B /* RocketsViewController.swift */; };
+		A32D0E6428D0C909008DA610 /* ProjectInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D0E6328D0C909008DA610 /* ProjectInfoView.swift */; };
 		A331EA7328842E9900740AF4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EA7228842E9900740AF4 /* NetworkManager.swift */; };
 		A331EA7528842EAA00740AF4 /* SpaceXService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EA7428842EAA00740AF4 /* SpaceXService.swift */; };
 		A331EA772884311400740AF4 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EA762884311400740AF4 /* Network.swift */; };
@@ -23,7 +25,6 @@
 		A331EA7A28844EA800740AF4 /* SpaceXAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EA7928844EA700740AF4 /* SpaceXAPI.swift */; };
 		A331EA7C288454A700740AF4 /* ApolloAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EA7B288454A700740AF4 /* ApolloAPI.swift */; };
 		A331EA8428856D2600740AF4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EA8328856D2600740AF4 /* HomeViewModel.swift */; };
-		A34B13CF289980CC0008C0CD /* YoutubePlayer in Frameworks */ = {isa = PBXBuildFile; productRef = A34B13CE289980CC0008C0CD /* YoutubePlayer */; };
 		A372A3F028759F150010A894 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A372A3EF28759F150010A894 /* AppDelegate.swift */; };
 		A372A3F228759F150010A894 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A372A3F128759F150010A894 /* SceneDelegate.swift */; };
 		A372A3F928759F170010A894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A372A3F828759F170010A894 /* Assets.xcassets */; };
@@ -32,17 +33,28 @@
 		A37388EB287C1EB400C1E7A4 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37388EA287C1EB400C1E7A4 /* NavigationController.swift */; };
 		A37388ED287C1ED200C1E7A4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37388EC287C1ED200C1E7A4 /* HomeViewController.swift */; };
 		A37388EF287C1EDE00C1E7A4 /* LaunchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37388EE287C1EDE00C1E7A4 /* LaunchesViewController.swift */; };
-		A37388F1287C1EE800C1E7A4 /* RocketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37388F0287C1EE800C1E7A4 /* RocketsViewController.swift */; };
 		A37388F3287C858200C1E7A4 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37388F2287C858200C1E7A4 /* Extension+UIColor.swift */; };
 		A37E71D8287AD25500E2B6C8 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = A37E71D7287AD25500E2B6C8 /* Apollo */; };
 		A37E71DA287AD25500E2B6C8 /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = A37E71D9287AD25500E2B6C8 /* ApolloWebSocket */; };
 		A38CC4A028BF6FE50063ACA8 /* SX-Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A38CC49F28BF6FE50063ACA8 /* SX-Inter-Bold.ttf */; };
 		A38CC4A228BF77F70063ACA8 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38CC4A128BF77F70063ACA8 /* UserDefaultsManager.swift */; };
 		A38CC4A528BF78970063ACA8 /* SavedLaunchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38CC4A428BF78970063ACA8 /* SavedLaunchesViewController.swift */; };
+		A38CC4AB28C75F1A0063ACA8 /* RocketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38CC4AA28C75F1A0063ACA8 /* RocketsView.swift */; };
+		A38CC4AD28C762B60063ACA8 /* RocketsQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A38CC4AC28C762B60063ACA8 /* RocketsQuery.graphql */; };
+		A38CC4B228C77A550063ACA8 /* RocketsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38CC4B128C77A540063ACA8 /* RocketsViewModel.swift */; };
 		A3B9FFCA28B3945A00B6E0CA /* LaunchDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B9FFC928B3945A00B6E0CA /* LaunchDetailsViewController.swift */; };
 		A3B9FFCC28B3999600B6E0CA /* LaunchDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B9FFCB28B3999600B6E0CA /* LaunchDetailsViewModel.swift */; };
+		A3CD841F28CE0B050059537F /* RocketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD841E28CE0B050059537F /* RocketView.swift */; };
+		A3CD842128CE0BC90059537F /* RocketDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD842028CE0BC90059537F /* RocketDetails.swift */; };
+		A3CD842328CE0BEE0059537F /* RocketInfoStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD842228CE0BEE0059537F /* RocketInfoStack.swift */; };
+		A3CD842528CE14C30059537F /* RocketDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD842428CE14C30059537F /* RocketDetailsViewModel.swift */; };
+		A3DC991928D33FA600267189 /* ProjectDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DC991828D33FA600267189 /* ProjectDetailsView.swift */; };
+		A3DC991B28D33FF500267189 /* ProjectDetailsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DC991A28D33FF500267189 /* ProjectDetailsStack.swift */; };
+		A3DC991F28D4817F00267189 /* HistoryDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DC991E28D4817F00267189 /* HistoryDetailsViewModel.swift */; };
+		A3DC992228D6104F00267189 /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = A3DC992128D6104F00267189 /* YouTubePlayerKit */; };
+		A3DC992728D7672F00267189 /* RocketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DC992628D7672F00267189 /* RocketViewModel.swift */; };
 		A3DDBFCC289A7DEE00329662 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDBFCB289A7DEE00329662 /* InfoView.swift */; };
-		A3DDBFCE289A8E2100329662 /* RocketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDBFCD289A8E2100329662 /* RocketView.swift */; };
+		A3DDBFCE289A8E2100329662 /* RocketUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDBFCD289A8E2100329662 /* RocketUIView.swift */; };
 		A3DDBFF6289BF99200329662 /* HistoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDBFF5289BF99100329662 /* HistoryCardView.swift */; };
 		A3E6998028A7BD2D008D336E /* LaunchesQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A3E6997F28A7BD2D008D336E /* LaunchesQuery.graphql */; };
 		A3E6998528A7C2BC008D336E /* LaunchesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6998428A7C2BC008D336E /* LaunchesViewModel.swift */; };
@@ -61,6 +73,8 @@
 		A30ACE11288C44400047734F /* HistoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailViewController.swift; sourceTree = "<group>"; };
 		A30ACE15288FDC460047734F /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		A30ACE17289025750047734F /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
+		A310A37528CF826200A0B03B /* RocketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsViewController.swift; sourceTree = "<group>"; };
+		A32D0E6328D0C909008DA610 /* ProjectInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectInfoView.swift; sourceTree = "<group>"; };
 		A331EA7228842E9900740AF4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A331EA7428842EAA00740AF4 /* SpaceXService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXService.swift; sourceTree = "<group>"; };
 		A331EA762884311400740AF4 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -77,18 +91,28 @@
 		A37388EA287C1EB400C1E7A4 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		A37388EC287C1ED200C1E7A4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A37388EE287C1EDE00C1E7A4 /* LaunchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesViewController.swift; sourceTree = "<group>"; };
-		A37388F0287C1EE800C1E7A4 /* RocketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsViewController.swift; sourceTree = "<group>"; };
 		A37388F2287C858200C1E7A4 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		A37E71DE287AE7D700E2B6C8 /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		A38CC49F28BF6FE50063ACA8 /* SX-Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SX-Inter-Bold.ttf"; sourceTree = "<group>"; };
 		A38CC4A128BF77F70063ACA8 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		A38CC4A428BF78970063ACA8 /* SavedLaunchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedLaunchesViewController.swift; sourceTree = "<group>"; };
+		A38CC4AA28C75F1A0063ACA8 /* RocketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsView.swift; sourceTree = "<group>"; };
+		A38CC4AC28C762B60063ACA8 /* RocketsQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = RocketsQuery.graphql; sourceTree = "<group>"; };
+		A38CC4B128C77A540063ACA8 /* RocketsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsViewModel.swift; sourceTree = "<group>"; };
 		A3A2EA36287DA99000C62B81 /* HomeInfoQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = HomeInfoQuery.graphql; sourceTree = "<group>"; };
 		A3A2EA37287DA9A400C62B81 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A3B9FFC928B3945A00B6E0CA /* LaunchDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailsViewController.swift; sourceTree = "<group>"; };
 		A3B9FFCB28B3999600B6E0CA /* LaunchDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailsViewModel.swift; sourceTree = "<group>"; };
+		A3CD841E28CE0B050059537F /* RocketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketView.swift; sourceTree = "<group>"; };
+		A3CD842028CE0BC90059537F /* RocketDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketDetails.swift; sourceTree = "<group>"; };
+		A3CD842228CE0BEE0059537F /* RocketInfoStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketInfoStack.swift; sourceTree = "<group>"; };
+		A3CD842428CE14C30059537F /* RocketDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketDetailsViewModel.swift; sourceTree = "<group>"; };
+		A3DC991828D33FA600267189 /* ProjectDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsView.swift; sourceTree = "<group>"; };
+		A3DC991A28D33FF500267189 /* ProjectDetailsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsStack.swift; sourceTree = "<group>"; };
+		A3DC991E28D4817F00267189 /* HistoryDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailsViewModel.swift; sourceTree = "<group>"; };
+		A3DC992628D7672F00267189 /* RocketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketViewModel.swift; sourceTree = "<group>"; };
 		A3DDBFCB289A7DEE00329662 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
-		A3DDBFCD289A8E2100329662 /* RocketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketView.swift; sourceTree = "<group>"; };
+		A3DDBFCD289A8E2100329662 /* RocketUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketUIView.swift; sourceTree = "<group>"; };
 		A3DDBFF5289BF99100329662 /* HistoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCardView.swift; sourceTree = "<group>"; };
 		A3E6997F28A7BD2D008D336E /* LaunchesQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LaunchesQuery.graphql; sourceTree = "<group>"; };
 		A3E6998428A7C2BC008D336E /* LaunchesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesViewModel.swift; sourceTree = "<group>"; };
@@ -102,8 +126,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A34B13CF289980CC0008C0CD /* YoutubePlayer in Frameworks */,
 				A37E71D8287AD25500E2B6C8 /* Apollo in Frameworks */,
+				A3DC992228D6104F00267189 /* YouTubePlayerKit in Frameworks */,
 				A37E71DA287AD25500E2B6C8 /* ApolloWebSocket in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,8 +139,9 @@
 			isa = PBXGroup;
 			children = (
 				A30ACE11288C44400047734F /* HistoryDetailViewController.swift */,
+				A3DC991E28D4817F00267189 /* HistoryDetailsViewModel.swift */,
 				A3DDBFCB289A7DEE00329662 /* InfoView.swift */,
-				A3DDBFCD289A8E2100329662 /* RocketView.swift */,
+				A3DDBFCD289A8E2100329662 /* RocketUIView.swift */,
 			);
 			path = HistoryDetailsScreen;
 			sourceTree = "<group>";
@@ -134,6 +159,7 @@
 			children = (
 				A3A2EA36287DA99000C62B81 /* HomeInfoQuery.graphql */,
 				A3E6997F28A7BD2D008D336E /* LaunchesQuery.graphql */,
+				A38CC4AC28C762B60063ACA8 /* RocketsQuery.graphql */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -156,9 +182,9 @@
 				A37388EC287C1ED200C1E7A4 /* HomeViewController.swift */,
 				A331EA8328856D2600740AF4 /* HomeViewModel.swift */,
 				A30ACDC728887F9D0047734F /* HistoryView.swift */,
+				A3DDBFF5289BF99100329662 /* HistoryCardView.swift */,
 				A30ACDC928892C0F0047734F /* CompanyDescriptionView.swift */,
 				A30ACE0F288AB6A80047734F /* BackroundCardView.swift */,
-				A3DDBFF5289BF99100329662 /* HistoryCardView.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -182,12 +208,12 @@
 		A372A3EE28759F150010A894 /* SpaceX */ = {
 			isa = PBXGroup;
 			children = (
-				A3A2EA38287DC83D00C62B81 /* ViewControllers */,
 				A331EA8228856D1000740AF4 /* HomeScreen */,
 				A30ACE13288FD3070047734F /* HistoryDetailsScreen */,
 				A3E6998128A7C269008D336E /* LaunchesScreen */,
 				A3B9FFC828B3925100B6E0CA /* LaunchDetailsScreen */,
 				A38CC4A328BF78880063ACA8 /* SavedLaunchesScreen */,
+				A38CC4A928C75EC70063ACA8 /* RocketsScreen */,
 				A30ACE14288FDC230047734F /* ActivityIndicator */,
 				A38CC4A828C0DC640063ACA8 /* UserDefaults */,
 				A37E71DD287AD8CC00E2B6C8 /* GraphQL */,
@@ -211,6 +237,8 @@
 		A372A4042875B02F0010A894 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				A37388E8287C1E9200C1E7A4 /* MainTabBarController.swift */,
+				A37388EA287C1EB400C1E7A4 /* NavigationController.swift */,
 				A372A3EF28759F150010A894 /* AppDelegate.swift */,
 				A372A3F128759F150010A894 /* SceneDelegate.swift */,
 				A372A3FA28759F170010A894 /* LaunchScreen.storyboard */,
@@ -246,14 +274,24 @@
 			path = UserDefaults;
 			sourceTree = "<group>";
 		};
-		A3A2EA38287DC83D00C62B81 /* ViewControllers */ = {
+		A38CC4A928C75EC70063ACA8 /* RocketsScreen */ = {
 			isa = PBXGroup;
 			children = (
-				A37388E8287C1E9200C1E7A4 /* MainTabBarController.swift */,
-				A37388EA287C1EB400C1E7A4 /* NavigationController.swift */,
-				A37388F0287C1EE800C1E7A4 /* RocketsViewController.swift */,
+				A310A37528CF826200A0B03B /* RocketsViewController.swift */,
+				A38CC4B128C77A540063ACA8 /* RocketsViewModel.swift */,
+				A3DC991D28D3784E00267189 /* SwiftUIRockets */,
 			);
-			path = ViewControllers;
+			path = RocketsScreen;
+			sourceTree = "<group>";
+		};
+		A38CC4D628CA4F930063ACA8 /* RocketDetails */ = {
+			isa = PBXGroup;
+			children = (
+				A3CD842028CE0BC90059537F /* RocketDetails.swift */,
+				A3CD842428CE14C30059537F /* RocketDetailsViewModel.swift */,
+				A3CD842228CE0BEE0059537F /* RocketInfoStack.swift */,
+			);
+			path = RocketDetails;
 			sourceTree = "<group>";
 		};
 		A3A2EA39287DC85500C62B81 /* Extensions */ = {
@@ -276,6 +314,36 @@
 			path = LaunchDetailsScreen;
 			sourceTree = "<group>";
 		};
+		A3DC991C28D3407100267189 /* ProjectInfo */ = {
+			isa = PBXGroup;
+			children = (
+				A32D0E6328D0C909008DA610 /* ProjectInfoView.swift */,
+				A3DC991828D33FA600267189 /* ProjectDetailsView.swift */,
+				A3DC991A28D33FF500267189 /* ProjectDetailsStack.swift */,
+			);
+			path = ProjectInfo;
+			sourceTree = "<group>";
+		};
+		A3DC991D28D3784E00267189 /* SwiftUIRockets */ = {
+			isa = PBXGroup;
+			children = (
+				A38CC4AA28C75F1A0063ACA8 /* RocketsView.swift */,
+				A3DC992828D7690300267189 /* Rocket */,
+				A3DC991C28D3407100267189 /* ProjectInfo */,
+				A38CC4D628CA4F930063ACA8 /* RocketDetails */,
+			);
+			path = SwiftUIRockets;
+			sourceTree = "<group>";
+		};
+		A3DC992828D7690300267189 /* Rocket */ = {
+			isa = PBXGroup;
+			children = (
+				A3CD841E28CE0B050059537F /* RocketView.swift */,
+				A3DC992628D7672F00267189 /* RocketViewModel.swift */,
+			);
+			path = Rocket;
+			sourceTree = "<group>";
+		};
 		A3E6998128A7C269008D336E /* LaunchesScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +363,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A372A40028759F170010A894 /* Build configuration list for PBXNativeTarget "SpaceX" */;
 			buildPhases = (
+				A38CC4AF28C76C940063ACA8 /* Apollo */,
+				A38CC4B028C76CA60063ACA8 /* Generate Apollo GraphQL API */,
 				A372A3E828759F150010A894 /* Sources */,
 				A372A3E928759F150010A894 /* Frameworks */,
 				A372A3EA28759F150010A894 /* Resources */,
@@ -307,7 +377,7 @@
 			packageProductDependencies = (
 				A37E71D7287AD25500E2B6C8 /* Apollo */,
 				A37E71D9287AD25500E2B6C8 /* ApolloWebSocket */,
-				A34B13CE289980CC0008C0CD /* YoutubePlayer */,
+				A3DC992128D6104F00267189 /* YouTubePlayerKit */,
 			);
 			productName = SpaceX;
 			productReference = A372A3EC28759F150010A894 /* SpaceX.app */;
@@ -339,7 +409,7 @@
 			mainGroup = A372A3E328759F150010A894;
 			packageReferences = (
 				A37E71D6287AD25500E2B6C8 /* XCRemoteSwiftPackageReference "apollo-ios" */,
-				A34B13CD289980CB0008C0CD /* XCRemoteSwiftPackageReference "YoutubePlayer" */,
+				A3DC992028D6104F00267189 /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */,
 			);
 			productRefGroup = A372A3ED28759F150010A894 /* Products */;
 			projectDirPath = "";
@@ -355,6 +425,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A38CC4AD28C762B60063ACA8 /* RocketsQuery.graphql in Resources */,
 				A30ACDA42886B18B0047734F /* SX-Inter-Regular.ttf in Resources */,
 				A372A3FC28759F170010A894 /* LaunchScreen.storyboard in Resources */,
 				A372A3F928759F170010A894 /* Assets.xcassets in Resources */,
@@ -365,23 +436,71 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A38CC4AF28C76C940063ACA8 /* Apollo */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Apollo;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Don't run this during index builds\nif [ $ACTION = \"indexbuild\" ]; then exit 0; fi\n\n# Go to the build root and search up the chain to find the Derived Data Path where the source packages are checked out.\nDERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\n\nwhile ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n  if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n    echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n    exit 1\n  fi\n\n  DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\ndone\n\n# Grab a reference to the directory where scripts are checked out\nSCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\n\nif [ -z \"${SCRIPT_PATH}\" ]; then\n    echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n    exit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}/GraphQL\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" API.swift\n";
+			showEnvVarsInLog = 0;
+		};
+		A38CC4B028C76CA60063ACA8 /* Generate Apollo GraphQL API */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Apollo GraphQL API";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Don't run this during index builds\nif [ $ACTION = \"indexbuild\" ]; then exit 0; fi\n\n# Go to the build root and search up the chain to find the Derived Data Path where the source packages are checked out.\nDERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\n\nwhile ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n  if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n    echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n    exit 1\n  fi\n\n  DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\ndone\n\n\n# Grab a reference to the directory where scripts are checked out\nSCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\n\nif [ -z \"${SCRIPT_PATH}\" ]; then\n    echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n    exit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}/GraphQL\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh schema:download --endpoint=\"https://api.spacex.land/graphql/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A372A3E828759F150010A894 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A38CC4AB28C75F1A0063ACA8 /* RocketsView.swift in Sources */,
+				A3CD842128CE0BC90059537F /* RocketDetails.swift in Sources */,
 				A331EA7528842EAA00740AF4 /* SpaceXService.swift in Sources */,
-				A37388F1287C1EE800C1E7A4 /* RocketsViewController.swift in Sources */,
 				A38CC4A228BF77F70063ACA8 /* UserDefaultsManager.swift in Sources */,
+				A3CD842328CE0BEE0059537F /* RocketInfoStack.swift in Sources */,
+				A38CC4B228C77A550063ACA8 /* RocketsViewModel.swift in Sources */,
+				A3CD842528CE14C30059537F /* RocketDetailsViewModel.swift in Sources */,
 				A3B9FFCA28B3945A00B6E0CA /* LaunchDetailsViewController.swift in Sources */,
 				A30ACDCA28892C0F0047734F /* CompanyDescriptionView.swift in Sources */,
 				A3B9FFCC28B3999600B6E0CA /* LaunchDetailsViewModel.swift in Sources */,
 				A37388E9287C1E9200C1E7A4 /* MainTabBarController.swift in Sources */,
-				A3DDBFCE289A8E2100329662 /* RocketView.swift in Sources */,
+				A3DDBFCE289A8E2100329662 /* RocketUIView.swift in Sources */,
 				A30ACE10288AB6A80047734F /* BackroundCardView.swift in Sources */,
 				A30ACE12288C44400047734F /* HistoryDetailViewController.swift in Sources */,
 				A37388EF287C1EDE00C1E7A4 /* LaunchesViewController.swift in Sources */,
 				A30ACE18289025760047734F /* Extension + UIViewController.swift in Sources */,
+				A3DC991F28D4817F00267189 /* HistoryDetailsViewModel.swift in Sources */,
+				A310A37628CF826200A0B03B /* RocketsViewController.swift in Sources */,
 				A30ACDA228868F860047734F /* Extension + UIView.swift in Sources */,
 				A3E699AD28AA7A44008D336E /* LaunchAttributes.swift in Sources */,
 				A37388EB287C1EB400C1E7A4 /* NavigationController.swift in Sources */,
@@ -394,16 +513,21 @@
 				A331EA7A28844EA800740AF4 /* SpaceXAPI.swift in Sources */,
 				A37388ED287C1ED200C1E7A4 /* HomeViewController.swift in Sources */,
 				A30ACE16288FDC460047734F /* ActivityIndicator.swift in Sources */,
+				A3DC991928D33FA600267189 /* ProjectDetailsView.swift in Sources */,
+				A3DC991B28D33FF500267189 /* ProjectDetailsStack.swift in Sources */,
 				A331EA782884448900740AF4 /* API.swift in Sources */,
 				A3E699AB28A93CD1008D336E /* LaunchCollectionViewCellModel.swift in Sources */,
 				A37388F3287C858200C1E7A4 /* Extension+UIColor.swift in Sources */,
 				A331EA8428856D2600740AF4 /* HomeViewModel.swift in Sources */,
 				A30ACDA62886F4B30047734F /* Extension + UIImage.swift in Sources */,
+				A3CD841F28CE0B050059537F /* RocketView.swift in Sources */,
 				A38CC4A528BF78970063ACA8 /* SavedLaunchesViewController.swift in Sources */,
 				A3DDBFCC289A7DEE00329662 /* InfoView.swift in Sources */,
+				A3DC992728D7672F00267189 /* RocketViewModel.swift in Sources */,
 				A3DDBFF6289BF99200329662 /* HistoryCardView.swift in Sources */,
 				A331EA7C288454A700740AF4 /* ApolloAPI.swift in Sources */,
 				A3E6998728A7ED75008D336E /* LaunchCollectionViewCell.swift in Sources */,
+				A32D0E6428D0C909008DA610 /* ProjectInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,14 +739,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A34B13CD289980CB0008C0CD /* XCRemoteSwiftPackageReference "YoutubePlayer" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/NicholasMata/YoutubePlayer";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		A37E71D6287AD25500E2B6C8 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
@@ -631,14 +747,17 @@
 				kind = branch;
 			};
 		};
+		A3DC992028D6104F00267189 /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SvenTiigi/YouTubePlayerKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A34B13CE289980CC0008C0CD /* YoutubePlayer */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A34B13CD289980CB0008C0CD /* XCRemoteSwiftPackageReference "YoutubePlayer" */;
-			productName = YoutubePlayer;
-		};
 		A37E71D7287AD25500E2B6C8 /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A37E71D6287AD25500E2B6C8 /* XCRemoteSwiftPackageReference "apollo-ios" */;
@@ -648,6 +767,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A37E71D6287AD25500E2B6C8 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = ApolloWebSocket;
+		};
+		A3DC992128D6104F00267189 /* YouTubePlayerKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3DC992028D6104F00267189 /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */;
+			productName = YouTubePlayerKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

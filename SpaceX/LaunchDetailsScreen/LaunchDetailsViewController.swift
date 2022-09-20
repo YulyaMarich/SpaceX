@@ -9,7 +9,7 @@ import UIKit
 
 class LaunchDetailsViewController: UIViewController {
     
-    var viewModel: LaunchDetailsViewModelProtocol
+    let viewModel: LaunchDetailsViewModelProtocol
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()

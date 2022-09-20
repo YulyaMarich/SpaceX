@@ -52,4 +52,3 @@ class BackroundCardView: UIView {
         layer.shadowOpacity = 0.3
     }
 }
-

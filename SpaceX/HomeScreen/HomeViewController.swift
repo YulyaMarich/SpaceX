@@ -19,15 +19,12 @@ class HomeViewController: UIViewController {
         return view
     }()
     
-    private lazy var companyDescriptionView = BackroundCardView()
-    
     private lazy var historyLabel: UILabel = {
         let label = UILabel()
         label.text = "Histories"
         label.font = UIFont(name: "Inter-Regular", size: 15)
         return label
     }()
-    
     
     private lazy var stackView: UIStackView = {
         let stack = UIStackView()
@@ -36,6 +33,7 @@ class HomeViewController: UIViewController {
         return stack
     }()
     
+    private lazy var companyDescriptionView = BackroundCardView()
     private let viewModel: HomeViewModelProtocol
     
     override func viewDidLoad() {
@@ -111,16 +109,9 @@ class HomeViewController: UIViewController {
     }
     
     private func setUpCompanyDescriptionView() {
-        guard let company = viewModel.data?.company else { return }
-        
-        let companyDescriptionViewElements = CompanyDescriptionView(companyActivityText: company.summary,
-                                                                    founderText: company.founder,
-                                                                    yearText: company.founded,
-                                                                    valuationText: company.valuation,
-                                                                    twitterLink: company.links?.twitter)
-        
+        guard let company = viewModel.company else { return }
+        let companyDescriptionViewElements = CompanyDescriptionView(company: company)
         companyDescriptionView.addSubview(companyDescriptionViewElements)
-        
         companyDescriptionViewElements.anchor(top: companyDescriptionView.topAnchor,
                                               leading: companyDescriptionView.leadingAnchor,
                                               bottom: companyDescriptionView.bottomAnchor,
@@ -129,13 +120,11 @@ class HomeViewController: UIViewController {
     }
     
     private func setUpHistoriesStackView() {
-        guard let histories = viewModel.data?.histories else { return }
-        
-        for history in histories {
+        for history in viewModel.histories {
+            guard let history = history else { return } 
             let historyCard = HistoryCardView(history: history)
             historyCard.presenter = navigationController
             stackView.addArrangedSubview(historyCard)
         }
     }
 }
-

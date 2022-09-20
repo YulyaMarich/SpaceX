@@ -6,12 +6,11 @@
 //
 
 import UIKit
-import YoutubePlayer
+import YouTubePlayerKit
 
 class HistoryDetailViewController: UIViewController {
     
-    private var data: HomeInfoQuery.Data.History?
-    private var flight: ApIflight?
+    private let viewModel: HistoryDetailsViewModelProtocol
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -41,8 +40,11 @@ class HistoryDetailViewController: UIViewController {
         return infoView
     }()
     
-    private lazy var videoView: YoutubePlayerView = {
-        let videoView = YoutubePlayerView()
+    private lazy var videoView: YouTubePlayerViewController = {
+        let videoView = YouTubePlayerViewController()
+        videoView.view.layer.masksToBounds = true
+        videoView.view.layer.cornerRadius = 10
+        videoView.player = .init(stringLiteral: viewModel.videoURL)
         return videoView
     }()
     
@@ -61,7 +63,7 @@ class HistoryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpVC()
-        if data?.flight == nil {
+        if viewModel.flight == nil {
             showInfoNotFound()
         } else {
             addSubviews()
@@ -69,13 +71,11 @@ class HistoryDetailViewController: UIViewController {
             setUpConstraints()
             setUpInfoView()
             createRocketView()
-            setUpVideoView()
         }
     }
     
-    init(data: HomeInfoQuery.Data.History?) {
-        self.data = data
-        self.flight = data?.flight?.fragments.apIflight
+    init(viewModel: HistoryDetailsViewModelProtocol) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -85,8 +85,8 @@ class HistoryDetailViewController: UIViewController {
     
     private func setUpVC() {
         view.backgroundColor = .sxWhite
-        navigationItem.title = data?.title
-        navigationController?.navigationItem.largeTitleDisplayMode = .never
+        navigationItem.title = viewModel.tilte
+        navigationItem.largeTitleDisplayMode = .never
         UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).adjustsFontSizeToFitWidth = true
         navigationController?.navigationBar.tintColor = .sxRed
     }
@@ -98,7 +98,7 @@ class HistoryDetailViewController: UIViewController {
         scrollViewContainer.addSubview(infoLabel)
         scrollViewContainer.addSubview(infoView)
         scrollViewContainer.addSubview(videoLabel)
-        scrollViewContainer.addSubview(videoView)
+        scrollViewContainer.addSubview(videoView.view)
     }
     
     private func setUpConstraints() {
@@ -137,7 +137,7 @@ class HistoryDetailViewController: UIViewController {
                           trailing: scrollViewContainer.trailingAnchor,
                           spacing: UIEdgeInsets(top: 15, left: 20, bottom: 0, right: 20))
         
-        videoView.anchor(top: videoLabel.bottomAnchor,
+        videoView.view.anchor(top: videoLabel.bottomAnchor,
                          leading: scrollViewContainer.leadingAnchor,
                          bottom: nil,
                          trailing: scrollViewContainer.trailingAnchor,
@@ -157,14 +157,14 @@ class HistoryDetailViewController: UIViewController {
         
         let missionNameString = NSMutableAttributedString(string: "Mission name ", attributes: missionNameAttributes)
         
-        let name = NSAttributedString(string: flight?.missionName ?? "", attributes: nameAttributes)
+        let name = NSAttributedString(string: viewModel.missionName, attributes: nameAttributes)
         
         missionNameString.append(name)
         missionNameLabel.attributedText = missionNameString
     }
     
     private func setUpInfoView() {
-        guard let flight = flight else { return }
+        guard let flight = viewModel.flight else { return }
         let infoViewElements = InfoView(flight: flight)
         infoView.addSubview(infoViewElements)
         infoViewElements.anchor(top: infoView.topAnchor,
@@ -173,23 +173,10 @@ class HistoryDetailViewController: UIViewController {
                                 trailing: infoView.trailingAnchor)
     }
     
-    private func setUpVideoView() {
-        videoView.layer.masksToBounds = true
-        videoView.layer.cornerRadius = 10
-        
-        guard let url = URL(string: data?.flight?.fragments.apIflight.links?.videoLink ?? "") else { return }
-        do {
-            try self.videoView.loadVideo(withUrl: url, playerVars: .init(playsInline: .true))
-        } catch {
-            print(error)
-        }
-    }
-    
-    
     private func createRocketView() {
-        let rocketView = RocketView(flight: flight?.rocket?.rocket)
+        let rocketView = RocketUIView(flight: viewModel.flight?.rocket?.rocket)
         scrollView.addSubview(rocketView)
-        rocketView.anchor(top: videoView.bottomAnchor,
+        rocketView.anchor(top: videoView.view.bottomAnchor,
                           leading: scrollView.contentLayoutGuide.leadingAnchor,
                           bottom: scrollView.contentLayoutGuide.bottomAnchor,
                           trailing: scrollView.contentLayoutGuide.trailingAnchor,

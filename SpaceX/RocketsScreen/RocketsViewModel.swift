@@ -1,30 +1,30 @@
 //
-//  LaunchesViewModel.swift
+//  RocketsViewModel.swift
 //  SpaceX
 //
-//  Created by Julia on 13.08.2022.
+//  Created by Julia on 06.09.2022.
 //
 
 import Foundation
 
-protocol LaunchesViewModelProtocol {
+protocol RocketsViewModelProtocol {
     var spaceXService: SpaceXAPI { get }
-    var data: LaunchesQuery.Data? { get set }
+    var data: RocketsQuery.Data? { get set }
     
     func fetch(completion: @escaping() -> Void)
 }
 
-class LaunchesViewModel: LaunchesViewModelProtocol {
+class RocketsViewModel: RocketsViewModelProtocol, ObservableObject {
     init(spaceXService: SpaceXAPI = SpaceXService()) {
         self.spaceXService = spaceXService
     }
     
-    var spaceXService: SpaceXAPI = SpaceXService()
+    var spaceXService: SpaceXAPI
     
-    var data: LaunchesQuery.Data?
+    var data: RocketsQuery.Data?
     
-    func fetch(completion: @escaping () -> Void) {
-        _ = spaceXService.executeLaunchesQuery { result in
+    func fetch(completion: @escaping() -> Void) {
+        _ = spaceXService.executeRocketsQuery { result in
             switch result {
             case .success(let success):
                 self.data = success.data

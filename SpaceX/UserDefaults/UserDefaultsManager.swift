@@ -119,7 +119,6 @@ class DataManager {
             
         } catch {
             print("Unable to Decode Launches (\(error))")
-            
         }
     }
 }
