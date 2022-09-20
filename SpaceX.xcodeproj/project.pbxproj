@@ -208,7 +208,6 @@
 		A372A3EE28759F150010A894 /* SpaceX */ = {
 			isa = PBXGroup;
 			children = (
-				A3A2EA38287DC83D00C62B81 /* ViewControllers */,
 				A331EA8228856D1000740AF4 /* HomeScreen */,
 				A30ACE13288FD3070047734F /* HistoryDetailsScreen */,
 				A3E6998128A7C269008D336E /* LaunchesScreen */,
@@ -238,6 +237,8 @@
 		A372A4042875B02F0010A894 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				A37388E8287C1E9200C1E7A4 /* MainTabBarController.swift */,
+				A37388EA287C1EB400C1E7A4 /* NavigationController.swift */,
 				A372A3EF28759F150010A894 /* AppDelegate.swift */,
 				A372A3F128759F150010A894 /* SceneDelegate.swift */,
 				A372A3FA28759F170010A894 /* LaunchScreen.storyboard */,
@@ -291,15 +292,6 @@
 				A3CD842228CE0BEE0059537F /* RocketInfoStack.swift */,
 			);
 			path = RocketDetails;
-			sourceTree = "<group>";
-		};
-		A3A2EA38287DC83D00C62B81 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				A37388E8287C1E9200C1E7A4 /* MainTabBarController.swift */,
-				A37388EA287C1EB400C1E7A4 /* NavigationController.swift */,
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		A3A2EA39287DC85500C62B81 /* Extensions */ = {
